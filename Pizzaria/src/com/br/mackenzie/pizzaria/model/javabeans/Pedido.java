@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.mackenzie.pizzaria.model;
+package com.br.mackenzie.pizzaria.model.javabeans;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -62,4 +62,8 @@ public class Pedido implements Serializable {
         this.data = data;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" + "codigo=" + codigo + ", cliente=" + cliente + ", precoTotal=" + precoTotal + ", data=" + data + '}';
+    }
 }

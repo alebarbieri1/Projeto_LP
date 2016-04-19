@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.mackenzie.pizzaria.model;
+package com.br.mackenzie.pizzaria.model.javabeans;
 
 import java.io.Serializable;
 
@@ -59,4 +59,10 @@ public class Cliente implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + '}';
+    }
+    
 }

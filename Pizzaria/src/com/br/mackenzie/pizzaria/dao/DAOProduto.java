@@ -5,8 +5,8 @@
  */
 package com.br.mackenzie.pizzaria.dao;
 
-import com.br.mackenzie.pizzaria.model.Produto;
-import com.br.mackenzie.pizzaria.model.Sabor;
+import com.br.mackenzie.pizzaria.model.javabeans.Produto;
+import com.br.mackenzie.pizzaria.model.javabeans.Sabor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

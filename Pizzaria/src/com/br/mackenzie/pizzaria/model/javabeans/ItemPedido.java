@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.mackenzie.pizzaria.model;
+package com.br.mackenzie.pizzaria.model.javabeans;
 
 /**
  *
@@ -46,5 +46,10 @@ public class ItemPedido {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemPedido{" + "produto=" + produto + ", quantidade=" + quantidade + ", total=" + total + '}';
     }
 }

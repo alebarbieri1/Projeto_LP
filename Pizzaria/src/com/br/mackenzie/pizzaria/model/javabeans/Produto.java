@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.mackenzie.pizzaria.model;
+package com.br.mackenzie.pizzaria.model.javabeans;
 
 import java.io.Serializable;
 
@@ -58,5 +58,10 @@ public class Produto implements Serializable {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "codigo=" + codigo + ", sabor=" + sabor + ", nome=" + nome + ", preco=" + preco + '}';
     }
 }
