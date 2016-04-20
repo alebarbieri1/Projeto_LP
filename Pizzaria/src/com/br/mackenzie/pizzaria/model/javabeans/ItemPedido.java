@@ -47,7 +47,7 @@ public class ItemPedido {
     public void setTotal(double total) {
         this.total = total;
     }
-
+    
     @Override
     public String toString() {
         return "ItemPedido{" + "produto=" + produto + ", quantidade=" + quantidade + ", total=" + total + '}';

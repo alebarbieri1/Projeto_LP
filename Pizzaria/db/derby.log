@@ -1,7 +1,7 @@
-Tue Apr 19 23:22:18 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Wed Apr 20 17:08:41 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Tue Apr 19 23:22:19 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-3179-adc9-ffffaacc3be3
+Wed Apr 20 17:10:58 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-3549-f91f-ffffaacc3be3
 no diretório de banco de dados C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db\pizzaria 
 
 java.vendor=Oracle Corporation
@@ -13,12 +13,29 @@ os.version=6.1
 derby.system.home=C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Apr 19 23:22:30 BRT 2016:
-Encerrando a instância a816c00e-0154-3179-adc9-ffffaacc3be3
-Tue Apr 19 23:22:30 BRT 2016 Thread[DRDAConnThread_3,5,main] (DATABASE = pizzaria), (DRDAID = {2}), Banco de dados 'pizzaria' fechado.
+Wed Apr 20 17:37:56 BRT 2016:
+Encerrando a instância a816c00e-0154-3549-f91f-ffffaacc3be3
+Wed Apr 20 17:37:57 BRT 2016 Thread[DRDAConnThread_3,5,main] (DATABASE = pizzaria), (DRDAID = {4}), Banco de dados 'pizzaria' fechado.
 ----------------------------------------------------------------
-Tue Apr 19 23:22:36 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 560740aa-0154-3179-adc9-ffffaacc3be3
+Wed Apr 20 17:38:35 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância db4f80ed-0154-3549-f91f-ffffaacc3be3
+no diretório de banco de dados C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db\pizzaria 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_77-b03
+user.dir=C:\Users\Inmetrics.LP0276\Downloads\Glassfish Server\glassfish4\javadb
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Apr 20 17:38:43 BRT 2016:
+Encerrando a instância db4f80ed-0154-3549-f91f-ffffaacc3be3
+Wed Apr 20 17:38:43 BRT 2016 Thread[DRDAConnThread_3,5,main] (DATABASE = pizzaria), (DRDAID = {6}), Banco de dados 'pizzaria' fechado.
+----------------------------------------------------------------
+Wed Apr 20 17:39:03 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 4b390189-0154-3549-f91f-ffffaacc3be3
 no diretório de banco de dados C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db\pizzaria 
 
 java.vendor=Oracle Corporation

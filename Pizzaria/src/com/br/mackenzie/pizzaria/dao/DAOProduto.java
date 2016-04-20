@@ -65,12 +65,12 @@ public class DAOProduto implements GenericDAO<Produto> {
             while (rs != null && rs.next()) {
                 int codigo = rs.getInt("codigo");
                 int codigo_sabor = rs.getInt("codigo_sabor");
-                // Buscar o objeto sabor através do código acima
-                Sabor sabor = null;
+                Sabor sabor = new DAOSabor().readById(codigo_sabor);
                 String nome = rs.getString("nome");
                 double preco = rs.getDouble("preco");
 
                 Produto produto = new Produto();
+                
                 produto.setCodigo(codigo);
                 produto.setSabor(sabor);
                 produto.setNome(nome);
@@ -85,22 +85,21 @@ public class DAOProduto implements GenericDAO<Produto> {
     }
 
     @Override
-    public Produto readById(long codigo) {
+    public Produto readById(long id) {
         Produto produto = null;
         String sql = "SELECT * FROM cliente WHERE id = ?";
-        try (PreparedStatement st = connection.prepareStatement(sql)) {
-            st.setLong(1, codigo);
-            ResultSet rst = st.executeQuery();
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
+            pst.setLong(1, id);
+            ResultSet rst = pst.executeQuery();
 
             long codigo_sabor = rst.getInt("codigo_sabor");
-            // Buscar o objeto sabor através do código acima
-            Sabor sabor = null;
+            Sabor sabor = new DAOSabor().readById(codigo_sabor);
             String nome = rst.getString("nome");
             double preco = rst.getDouble("preco");
 
             while (rst.next()) {
                 produto = new Produto();
-                produto.setCodigo(codigo);
+                produto.setCodigo(id);
                 produto.setSabor(sabor);
                 produto.setNome(nome);
                 produto.setPreco(preco);
@@ -129,10 +128,10 @@ public class DAOProduto implements GenericDAO<Produto> {
 
     @Override
     public boolean update(Produto e) {
-        
+
         boolean atualizou = false;
         String sql = "UPDATE produto SET codigo_sabor = ?, nome = ?, preco = ? WHERE codigo = ?";
-        try (PreparedStatement pst = connection.prepareStatement(sql)){
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
             pst.setLong(1, e.getSabor().getCodigo());
             pst.setString(2, e.getNome());
             pst.setDouble(3, e.getPreco());
@@ -145,7 +144,7 @@ public class DAOProduto implements GenericDAO<Produto> {
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return atualizou;
     }
 }
