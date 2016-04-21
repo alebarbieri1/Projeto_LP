@@ -41,9 +41,9 @@ public class DAOCliente implements GenericDAO<Cliente> {
                 int linhasAfetadas = pst.executeUpdate();
 
                 if (linhasAfetadas > 0) {
-                    ResultSet rs2 = pst.getGeneratedKeys();
-                    if (rs2 != null && rs2.next()) {
-                        resultado = rs2.getLong(1);
+                    ResultSet rs = pst.getGeneratedKeys();
+                    if (rs != null && rs.next()) {
+                        resultado = rs.getLong(1);
                     }
                 }
             }

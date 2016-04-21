@@ -64,8 +64,7 @@ public class DAOSabor implements GenericDAO<Sabor> {
                 Sabor sabor = new Sabor();
                 long cod = rs.getLong("cod");
                 long cod_tipo = rs.getLong("cod_tipo");
-                // Buscar o objeto tipo através do código acima
-                Tipo tipo = null;
+                Tipo tipo = new DAOTipo().readById(cod_tipo);
                 String nome = rs.getString("nome");
                 String descricao = rs.getString("descricao");
                 sabor.setCodigo(cod);
@@ -88,12 +87,10 @@ public class DAOSabor implements GenericDAO<Sabor> {
         String sql = "SELECT * FROM sabor WHERE codigo = ?";
         try(PreparedStatement pst = connection.prepareStatement(sql)){
             pst.setLong(1, id);
-            pst.executeQuery();
             ResultSet rs = pst.executeQuery();
             long codigo = rs.getLong("codigo");
             long codigo_tipo = rs.getLong("cod_tipo");
-            // Obter o objeto tipo através do código acima
-            Tipo tipo = null;
+            Tipo tipo = new DAOTipo().readById(codigo_tipo);
             String nome = rs.getString("nome");
             String descricao = rs.getString("descricao");
             sabor = new Sabor();

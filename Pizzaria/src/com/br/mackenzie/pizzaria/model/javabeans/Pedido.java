@@ -7,6 +7,7 @@ package com.br.mackenzie.pizzaria.model.javabeans;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Pedido implements Serializable {
     private Cliente cliente;
     private double precoTotal;
     private Date data;
-    // 1..* Item Pedido?
+    private List<ItemPedido> itensPedido;
 
     public Pedido() {
     }
@@ -60,6 +61,14 @@ public class Pedido implements Serializable {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public List<ItemPedido> getItensPedido() {
+        return itensPedido;
+    }
+
+    public void setItensPedido(List<ItemPedido> itensPedido) {
+        this.itensPedido = itensPedido;
     }
 
     @Override
