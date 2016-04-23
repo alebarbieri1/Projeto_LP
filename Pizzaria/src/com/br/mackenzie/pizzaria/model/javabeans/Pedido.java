@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class Pedido implements Serializable {
 
-    private int codigo;
+    private long codigo;
     private Cliente cliente;
     private double precoTotal;
     private Date data;
@@ -31,11 +31,11 @@ public class Pedido implements Serializable {
         this.data = data;
     }
 
-    public int getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 
