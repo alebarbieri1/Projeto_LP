@@ -17,11 +17,11 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Prog Felipe
+ * @author Felipe Teixeira
  */
 public class DAOPedido implements GenericDAO<Pedido> {
 
-    private Connection connection;
+    private final Connection connection;
 
     public DAOPedido() {
         connection = ConnectionFactory.getInstance().getConnection();
@@ -29,9 +29,9 @@ public class DAOPedido implements GenericDAO<Pedido> {
 
     @Override
     public long create(Pedido e) {
-        long resultado = 0;
+        long resultado = -1;
 
-        String sql = "INSERT INTO pedido (cliente,preco_total, data) VALUES (?,?,?)";
+        String sql = "INSERT INTO pedido (cliente, preco_total, data) VALUES (?,?,?)";
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
