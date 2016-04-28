@@ -16,14 +16,15 @@ and open the template in the editor.
 
 header {
     width: 100%;
-    background-color:#EDEDED;
+    background-color:#d6d6c2;
 }
 
 header ul {
     padding:0px;
     margin:0px;
     list-style:none;
-    width: 80%;
+    width: 81%;
+    background-color:#d6d6c2;
 }
 
 header ul li {
@@ -31,28 +32,64 @@ header ul li {
 }
 
 header ul li a {
-    padding: 39px 55px;
+    padding: 30px 55px;
     display: inline-block;
-    background-color:#EDEDED;
+    background-color:#d6d6c2;
     color: #333;
     text-decoration: none;
-    border-bottom:3px solid yellowgreen;
-}
-
-header ul li a:hover {
-    background-color:#D6D6D6;
-    color: #6D6D6D;
     border-bottom:3px solid coral;
 }
 
-section {
-    position: absolute;
-    top: 0;
-    left: 80%;
-    width: 40%;
+header ul li a:hover {
+    background-color: whitesmoke;
+    color: black;
+    border-bottom:3px solid black;
 }
 
-section input {
+#login {
+    position: absolute;
+    left: 81%;
+    width: 19%;
+    top: 0px;
+    background-color:#d6d6c2;
+}
+
+#login input {
     padding: 3px;
-    margin: 4px;
+    margin: 1px;
+}
+
+article {
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    background-color: whitesmoke;
+}
+
+#cadastro fieldset {
+    padding: 20px;
+}
+
+#cadastro {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 45px;
+}
+
+#cadastro input {
+    padding: 10px;
+    margin: 6px 5px;
+}
+
+#cadastro label {
+   display: inline-block;
+   width: 170px;
+   text-align: justify;
+}
+
+footer {
+    width: 100%;
+    padding-top: 20px;
+    text-align: justify;
+    background-color:#d6d6c2;
 }

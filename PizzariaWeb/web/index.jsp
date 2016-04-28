@@ -1,7 +1,7 @@
 <%-- 
     Document   : index.jsp
     Created on : 27/04/2016, 22:25:37
-    Author     : Inmetrics
+    Author     : Alexandre Lopes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,7 +22,7 @@
                 <li><a href="#">Entregas</a></li>
                 <li><a href="#">Sobre</a></li>
             </ul>
-            <section>
+            <section id="login">
                 <form method="POST" action="Controller">
                     <input type="text" placeholder="Usuário" required="required"><br>
                     <input type="password" placeholder="Senha" required="required"><br>
@@ -30,5 +30,26 @@
                 </form> 
             </section>
         </header>
+        <article>
+            <section id="cadastro">
+                <form method="POST" action="#">
+                    <fieldset>
+                        <legend>Cadastre-se</legend>
+                        <label>Nome Completo</label><input type="text" name="nome" placeholder="Nome" required="required"><br>
+                        <label>Usuário</label><input type="text" name="usuario" placeholder="Usuário" required="required"><br>
+                        <label>Senha</label><input type="password" name="senha" placeholder="Senha" required="required"><br>
+                        <label>E-mail</label><input type="email" name="email" placeholder="E-mail" required="required"><br>
+                        <label>Endereço</label><input type="text" name="endereco" placeholder="Endereço" required="required"><br>
+                        <label>Cidade</label><input type="text" name="cidade" placeholder="Cidade" required="required"><br>
+                        <label>CEP</label><input type="text" name="cep" placeholder="CEP" required="required"><br>
+                        <label>Telefone Residencial</label><input type="tel" name="telefone" placeholder="Telefone" required="required"><br>
+                    </fieldset>
+                </form>
+            </section>
+            
+            <footer>
+                <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+            </footer>
+        </article>
     </body>
 </html>
