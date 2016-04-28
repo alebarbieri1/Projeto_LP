@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/04/2016, 22:29:18
+    Author     : Alexandre Lopes
+*/
+
+*{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background-color:#EDEDED;
+}
+
+header ul {
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    width: 80%;
+}
+
+header ul li {
+    display: inline;
+}
+
+header ul li a {
+    padding: 39px 55px;
+    display: inline-block;
+    background-color:#EDEDED;
+    color: #333;
+    text-decoration: none;
+    border-bottom:3px solid yellowgreen;
+}
+
+header ul li a:hover {
+    background-color:#D6D6D6;
+    color: #6D6D6D;
+    border-bottom:3px solid coral;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 40%;
+}
+
+section input {
+    padding: 3px;
+    margin: 4px;
+}
