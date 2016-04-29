@@ -9,23 +9,15 @@ package com.br.mackenzie.pizzaria.model.javabeans;
  *
  * @author Alexandre Lopes
  */
-public abstract class Usuario {
+public class Usuario {
     
     private long codigo_usuario;
     private String nomeUsuario;
     private String senha;
     private Integer tipoUsuario;
-    private Usuario usuario;
+    private UsuarioInfo usuarioInfo;
 
     public Usuario() {
-    }
-
-    public Usuario(String usuario) {
-        if (usuario.equals("funcionario")){
-            this.usuario = new Funcionario();
-        } else {
-            this.usuario = new Cliente();
-        }
     }
     
     public long getCodigo_usuario() {
@@ -58,5 +50,13 @@ public abstract class Usuario {
 
     public void setTipoUsuario(Integer tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }  
+    }
+
+    public UsuarioInfo getUsuarioInfo() {
+        return usuarioInfo;
+    }
+
+    public void setUsuarioInfo(UsuarioInfo usuarioInfo) {
+        this.usuarioInfo = usuarioInfo;
+    }
 }

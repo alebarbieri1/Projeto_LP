@@ -16,7 +16,7 @@ import java.util.List;
 public class Pedido implements Serializable {
 
     private long codigo;
-    private Cliente cliente;
+    private Usuario usuario;
     private double precoTotal;
     private Date data;
     private List<ItemPedido> itensPedido;
@@ -24,9 +24,9 @@ public class Pedido implements Serializable {
     public Pedido() {
     }
 
-    public Pedido(int codigo, Cliente cliente, double precoTotal, Date data) {
+    public Pedido(int codigo, Usuario usuario, double precoTotal, Date data) {
         this.codigo = codigo;
-        this.cliente = cliente;
+        this.usuario = usuario;
         this.precoTotal = precoTotal;
         this.data = data;
     }
@@ -39,12 +39,12 @@ public class Pedido implements Serializable {
         this.codigo = codigo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public double getPrecoTotal() {
@@ -73,6 +73,6 @@ public class Pedido implements Serializable {
 
     @Override
     public String toString() {
-        return "Pedido{" + "codigo=" + codigo + ", cliente=" + cliente + ", precoTotal=" + precoTotal + ", data=" + data + '}';
+        return "Pedido{" + "codigo=" + codigo + ", usuario=" + usuario + ", precoTotal=" + precoTotal + ", data=" + data + '}';
     }
 }

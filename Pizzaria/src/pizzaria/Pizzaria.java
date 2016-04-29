@@ -5,9 +5,9 @@
  */
 package pizzaria;
 
-import com.br.mackenzie.pizzaria.dao.DAOCliente;
-import com.br.mackenzie.pizzaria.dao.DAOProduto;
-import com.br.mackenzie.pizzaria.dao.DAOSabor;
+import com.br.mackenzie.pizzaria.dao.DAOUsuario;
+import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
+
 /**
  *
  * @author Alexandre Lopes e Felipe Teixeira
@@ -19,10 +19,13 @@ public class Pizzaria {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Teste");
-        DAOCliente dao1 = new DAOCliente();
-        DAOProduto dao2 = new DAOProduto();
-        DAOSabor dao3 = new DAOSabor();
+        DAOUsuario daousuario = new DAOUsuario();
+        Usuario u = new Usuario();
+        u.setNomeUsuario("alexandre");
+        u.setSenha("123");
+        u.setTipoUsuario(1);
+        long codigo = daousuario.create(u);
+        u.setCodigo_usuario(codigo);
     }
     
 }

@@ -5,7 +5,8 @@
  */
 package com.br.mackenzie.pizzaria.controller;
 
-import com.br.mackenzie.pizzaria.dao.DAOCliente;
+import com.br.mackenzie.pizzaria.dao.DAOUsuario;
+import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

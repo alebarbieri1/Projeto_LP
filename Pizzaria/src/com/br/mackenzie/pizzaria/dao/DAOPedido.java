@@ -31,12 +31,13 @@ public class DAOPedido implements GenericDAO<Pedido> {
     public long create(Pedido e) {
         long resultado = -1;
 
-        String sql = "INSERT INTO pedido (cliente, preco_total, data) VALUES (?,?,?)";
+        // Arrumar na tabela do banco - usuario ao invés de cliente
+        String sql = "INSERT INTO pedido (usuario, preco_total, data) VALUES (?,?,?)";
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
 
-            pst.setLong(1, e.getCliente().getCpf());
+            pst.setLong(1, e.getUsuario().getCodigo_usuario());
             pst.setDouble(2, e.getPrecoTotal());
             pst.setDate(3, new java.sql.Date(e.getData().getTime()));
 

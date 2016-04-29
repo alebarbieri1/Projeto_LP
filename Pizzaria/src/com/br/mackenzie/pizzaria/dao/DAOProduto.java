@@ -49,7 +49,7 @@ public class DAOProduto implements GenericDAO<Produto> {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resultado;
     }
@@ -78,7 +78,7 @@ public class DAOProduto implements GenericDAO<Produto> {
                 produtos.add(produto);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return produtos;
@@ -105,7 +105,7 @@ public class DAOProduto implements GenericDAO<Produto> {
                 produto.setPreco(preco);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return produto;
     }
