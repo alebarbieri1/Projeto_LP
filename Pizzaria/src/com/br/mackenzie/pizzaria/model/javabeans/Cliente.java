@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Felipe Teixeira
  */
-public class Cliente implements Serializable {
+public class Cliente extends Usuario implements Serializable {
 
     private long cpf;
     private String nome;
