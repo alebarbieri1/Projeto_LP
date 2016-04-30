@@ -90,7 +90,19 @@ public class DAOUsuario implements GenericDAO<Usuario> {
 
     @Override
     public boolean delete(Usuario e) {
-        return false;
+        boolean retorno = false;
+        String sql = "DELETE FROM usuario WBERE codigo_usuario=?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setLong(1, e.getCodigo_usuario());
+            int res = pst.executeUpdate();
+            if(res>0) retorno = true;
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return retorno;
     }
 
     @Override
