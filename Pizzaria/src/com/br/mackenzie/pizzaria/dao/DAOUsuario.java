@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author Alexandre Lopes
  */
 public class DAOUsuario implements GenericDAO<Usuario> {
-    
+
     private static Connection connection;
 
     public DAOUsuario() {
@@ -31,21 +31,22 @@ public class DAOUsuario implements GenericDAO<Usuario> {
         long resultado = -1;
         // String sql = "INSERT INTO usuario (codigo_usuario, codigo_usuarioinfo, nome_usuario, senha, tipo_usuario) VALUES (?,?,?,?,?)";
         String sql = "INSERT INTO usuario (nome_usuario, senha, tipo_usuario) VALUES (?,?,?)";
-        try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)){
+        try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             // pst.setLong(1, e.getCodigo_usuario());
             //pst.setLong(2, e.getUsuarioInfo().getCpf());
             pst.setString(1, e.getNomeUsuario());
             pst.setString(2, e.getSenha());
             pst.setInt(3, e.getTipoUsuario());
-            
+
             int linhasAfetadas = pst.executeUpdate();
-            
-            if (linhasAfetadas > 0){
+
+            if (linhasAfetadas > 0) {
                 ResultSet rs = pst.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     resultado = rs.getLong(1);
                 }
             }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,7 +72,7 @@ public class DAOUsuario implements GenericDAO<Usuario> {
                 String nome_usuario = rs.getString("nome_usuario");
                 String senha = rs.getString("senha");
                 Integer tipo_usuario = rs.getInt("tipoUsuario");
-                
+
                 usuario = new Usuario();
                 usuario.setCodigo_usuario(codigo_usuario);
                 usuario.setNomeUsuario(nome_usuario);
@@ -79,7 +80,7 @@ public class DAOUsuario implements GenericDAO<Usuario> {
                 usuario.setTipoUsuario(tipo_usuario);
                 // usuario.setUsuarioInfo(null);
             }
-
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -96,5 +97,5 @@ public class DAOUsuario implements GenericDAO<Usuario> {
     public boolean update(Usuario e) {
         return false;
     }
-    
+
 }

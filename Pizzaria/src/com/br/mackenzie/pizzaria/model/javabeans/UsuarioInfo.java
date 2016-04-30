@@ -11,12 +11,13 @@ import java.io.Serializable;
  *
  * @author Alexandre Lopes
  */
-public class UsuarioInfo implements Serializable{
- 
+public class UsuarioInfo implements Serializable {
+
     private String nome;
     private long cpf;
     private String telefone;
     private String cep;
+    private String endereco;
     private Usuario Usuario;
 
     public UsuarioInfo() {
@@ -28,6 +29,14 @@ public class UsuarioInfo implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public long getCpf() {
@@ -61,6 +70,5 @@ public class UsuarioInfo implements Serializable{
     public void setUsuario(Usuario Usuario) {
         this.Usuario = Usuario;
     }
-    
-    
+
 }

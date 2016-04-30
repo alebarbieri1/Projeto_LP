@@ -48,6 +48,8 @@ public class DAOProduto implements GenericDAO<Produto> {
                     resultado = rs.getLong(1);
                 }
             }
+
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,13 +72,14 @@ public class DAOProduto implements GenericDAO<Produto> {
                 double preco = rs.getDouble("preco");
 
                 Produto produto = new Produto();
-                
+
                 produto.setCodigo(codigo);
                 produto.setSabor(sabor);
                 produto.setNome(nome);
                 produto.setPreco(preco);
                 produtos.add(produto);
             }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -104,6 +107,8 @@ public class DAOProduto implements GenericDAO<Produto> {
                 produto.setNome(nome);
                 produto.setPreco(preco);
             }
+
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -120,6 +125,8 @@ public class DAOProduto implements GenericDAO<Produto> {
             if (resultado > 0) {
                 apagou = true;
             }
+
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -141,6 +148,8 @@ public class DAOProduto implements GenericDAO<Produto> {
             if (resultado > 0) {
                 atualizou = true;
             }
+
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -64,6 +64,7 @@ public class DAOPedido implements GenericDAO<Pedido> {
 
                 }
             }
+            pst.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(DAOPedido.class.getName()).log(Level.SEVERE, null, ex);

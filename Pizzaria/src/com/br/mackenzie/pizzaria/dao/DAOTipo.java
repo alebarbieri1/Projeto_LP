@@ -31,17 +31,18 @@ public class DAOTipo implements GenericDAO<Tipo> {
     public long create(Tipo e) {
         long resultado = -1;
         String sql = "INSERT INTO tipo (codigo, nome) VALUES (?,?)";
-        try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)){
+        try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pst.setLong(1, e.getCodigo());
             pst.setString(2, e.getNome());
             int linhasAfetadas = pst.executeUpdate();
-            
-            if (linhasAfetadas > 0){
+
+            if (linhasAfetadas > 0) {
                 ResultSet rs = pst.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     resultado = rs.getLong(1);
                 }
             }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,17 +53,19 @@ public class DAOTipo implements GenericDAO<Tipo> {
     public List<Tipo> read() {
         List<Tipo> tipos = new ArrayList();
         String sql = "SELECT * FROM tipo";
-        try (PreparedStatement pst = connection.prepareStatement(sql)){
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
             ResultSet rs = pst.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Tipo tipo = new Tipo();
                 long codigo = rs.getLong("codigo");
                 String nome = rs.getString("nome");
                 tipo.setCodigo(codigo);
                 tipo.setNome(nome);
-                
+
                 tipos.add(tipo);
-            }   
+
+            }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -84,7 +87,7 @@ public class DAOTipo implements GenericDAO<Tipo> {
                 tipo.setCodigo(codigo);
                 tipo.setNome(nome);
             }
-
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,6 +105,7 @@ public class DAOTipo implements GenericDAO<Tipo> {
             if (resultado > 0) {
                 apagou = true;
             }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -120,6 +124,7 @@ public class DAOTipo implements GenericDAO<Tipo> {
             if (resultado > 0) {
                 atualizou = true;
             }
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
         }
