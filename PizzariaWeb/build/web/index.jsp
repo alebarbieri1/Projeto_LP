@@ -24,8 +24,8 @@
             </ul>
             <section id="login">
                 <form method="POST" action="Controller">
-                    <input type="text" placeholder="Usuário" required="required"><br>
-                    <input type="password" placeholder="Senha" required="required"><br>
+                    <input type="text" placeholder="Usuário" required="required" name="usuario"><br>
+                    <input type="password" placeholder="Senha" required="required" name="senha"><br>
                     <input type="submit" value="Login"><br>
                 </form> 
             </section>

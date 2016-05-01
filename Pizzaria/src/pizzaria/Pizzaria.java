@@ -21,11 +21,10 @@ public class Pizzaria {
         // TODO code application logic here
         DAOUsuario daousuario = new DAOUsuario();
         Usuario u = new Usuario();
-        u.setNomeUsuario("alexandre");
-        u.setSenha("123");
+        u.setNomeUsuario("felipe");
+        u.setSenha("456");
         u.setTipoUsuario(1);
-        long codigo = daousuario.create(u);
-        u.setCodigo_usuario(codigo);
+        daousuario.create(u);
     }
     
 }
