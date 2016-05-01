@@ -32,6 +32,7 @@ public class DAOUsuario implements GenericDAO<Usuario> {
     public long create(Usuario e) {
         long resultado = -1;
         // String sql = "INSERT INTO usuario (codigo_usuario, codigo_usuarioinfo, nome_usuario, senha, tipo_usuario) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO usuario (nome_usuario, senha, tipo_usuario, codigo_usuarioinfo) VALUES (?,?,?,?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pst.setString(1, e.getNomeUsuario());
             pst.setString(2, e.getSenha());
