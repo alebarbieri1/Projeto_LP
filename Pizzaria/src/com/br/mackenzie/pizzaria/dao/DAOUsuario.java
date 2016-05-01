@@ -6,6 +6,7 @@
 package com.br.mackenzie.pizzaria.dao;
 
 import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
+import com.br.mackenzie.pizzaria.model.javabeans.UsuarioInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -116,6 +117,29 @@ public class DAOUsuario implements GenericDAO<Usuario> {
         return usuario;
     }
 
+    public Usuario readByName(String name) {
+        String sql = "SELECT * FROM usuario WHERE nome_usuario = ?";
+        Usuario usuario = null;
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setString(1, name);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()){
+                usuario = new Usuario();         
+                usuario.setCodigo_usuario(rs.getLong("codigo_usuario"));
+                usuario.setNomeUsuario(rs.getString("nome_usuario"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setTipoUsuario(rs.getInt("tipo_usuario"));
+                UsuarioInfo usuario_info = new DAOUsuarioInfo().readById(rs.getLong("codigo_usuarioinfo"));
+                usuario.setUsuarioInfo(usuario_info);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return usuario;
+    }
+
     @Override
     public boolean delete(Usuario e) {
         boolean retorno = false;
@@ -137,20 +161,20 @@ public class DAOUsuario implements GenericDAO<Usuario> {
 
     @Override
     public boolean update(Usuario e) {
-       boolean retorno = false;
+        boolean retorno = false;
         String sql = "UPDATE usuario SET nome_usuario=?, senha=? WHERE codigo_usuario =?";
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, e.getNomeUsuario());
             pst.setString(2, e.getSenha());
             pst.setLong(3, e.getCodigo_usuario());
-            
+
             int result = pst.executeUpdate();
             if (result > 0) {
                 retorno = true;
             }
             pst.close();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuarioInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
