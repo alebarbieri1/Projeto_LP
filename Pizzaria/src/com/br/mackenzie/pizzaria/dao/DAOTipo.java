@@ -30,10 +30,9 @@ public class DAOTipo implements GenericDAO<Tipo> {
     @Override
     public long create(Tipo e) {
         long resultado = -1;
-        String sql = "INSERT INTO tipo (codigo, nome) VALUES (?,?)";
+        String sql = "INSERT INTO tipo (nome) VALUES (?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            pst.setLong(1, e.getCodigo());
-            pst.setString(2, e.getNome());
+            pst.setString(1, e.getNome());
             int linhasAfetadas = pst.executeUpdate();
 
             if (linhasAfetadas > 0) {

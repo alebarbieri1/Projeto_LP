@@ -57,7 +57,7 @@ public class DAOProduto implements GenericDAO<Produto> {
     }
 
     @Override
-    public List read() {
+    public List<Produto> read() {
         List<Produto> produtos = new ArrayList();
         try {
             String sql = "SELECT * FROM produto";

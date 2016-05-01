@@ -21,6 +21,7 @@ public class UsuarioInfo implements Serializable {
     private Usuario Usuario;
 
     public UsuarioInfo() {
+        this.Usuario = new Usuario();
     }
 
     public String getNome() {

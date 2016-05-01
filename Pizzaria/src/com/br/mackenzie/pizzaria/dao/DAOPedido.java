@@ -32,10 +32,10 @@ public class DAOPedido implements GenericDAO<Pedido> {
         long resultado = -1;
 
         // Arrumar na tabela do banco - usuario ao invés de cliente
-        String sql = "INSERT INTO pedido (usuario, preco_total, data) VALUES (?,?,?)";
+        String sql = "INSERT INTO pedido (cliente, preco_total, data) VALUES (?,?,?)";
 
         try {
-            PreparedStatement pst = connection.prepareStatement(sql);
+            PreparedStatement pst = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 
             pst.setLong(1, e.getUsuario().getCodigo_usuario());
             pst.setDouble(2, e.getPrecoTotal());
@@ -47,21 +47,21 @@ public class DAOPedido implements GenericDAO<Pedido> {
                 ResultSet rs = pst.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     resultado = rs.getLong(1);
-
+                    System.out.println(resultado);
                     e.setCodigo(resultado);
 
                     sql = "INSERT INTO item_pedido(cod_pedido, cod_produto, quantidade, total_item) VALUES(?,?,?,?)";
-                    pst = connection.prepareStatement(sql);
+                    PreparedStatement pst2 = connection.prepareStatement(sql);
 
                     for (ItemPedido i : e.getItensPedido()) {
-                        pst.setLong(1, e.getCodigo());
-                        pst.setLong(2, i.getProduto().getCodigo());
-                        pst.setLong(3, i.getQuantidade());
-                        pst.setDouble(4, i.getTotal());
+                        pst2.setLong(1, e.getCodigo());
+                        pst2.setLong(2, i.getProduto().getCodigo());
+                        pst2.setLong(3, i.getQuantidade());
+                        pst2.setDouble(4, i.getTotal());
 
-                        pst.executeUpdate();
+                        pst2.executeUpdate();
                     }
-
+                    pst2.close();
                 }
             }
             pst.close();

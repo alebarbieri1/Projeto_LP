@@ -32,13 +32,12 @@ public class DAOSabor implements GenericDAO<Sabor> {
     public long create(Sabor e) {
 
         long resultado = -1;
-        String sql = "INSERT INTO sabor (codigo, cod_tipo, nome, descricao) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO sabor (cod_tipo, nome, descricao) VALUES (?,?,?)";
 
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            pst.setLong(1, e.getCodigo());
-            pst.setLong(2, e.getTipo().getCodigo());
-            pst.setString(3, e.getNome());
-            pst.setString(4, e.getDescricao());
+            pst.setLong(1, e.getTipo().getCodigo());
+            pst.setString(2, e.getNome());
+            pst.setString(3, e.getDescricao());
             int linhasAfetadas = pst.executeUpdate();
 
             if (linhasAfetadas > 0) {
@@ -64,7 +63,7 @@ public class DAOSabor implements GenericDAO<Sabor> {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Sabor sabor = new Sabor();
-                long cod = rs.getLong("cod");
+                long cod = rs.getLong("codigo");
                 long cod_tipo = rs.getLong("cod_tipo");
                 Tipo tipo = new DAOTipo().readById(cod_tipo);
                 String nome = rs.getString("nome");
@@ -90,17 +89,17 @@ public class DAOSabor implements GenericDAO<Sabor> {
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
             pst.setLong(1, id);
             ResultSet rs = pst.executeQuery();
-            long codigo = rs.getLong("codigo");
-            long codigo_tipo = rs.getLong("cod_tipo");
-            Tipo tipo = new DAOTipo().readById(codigo_tipo);
-            String nome = rs.getString("nome");
-            String descricao = rs.getString("descricao");
-            sabor = new Sabor();
-            sabor.setCodigo(codigo);
-            sabor.setTipo(tipo);
-            sabor.setNome(nome);
-            sabor.setDescricao(descricao);
-
+            if (rs.next()) {
+                long codigo_tipo = rs.getLong("cod_tipo");
+                Tipo tipo = new DAOTipo().readById(codigo_tipo);
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
+                sabor = new Sabor();
+                sabor.setCodigo(id);
+                sabor.setTipo(tipo);
+                sabor.setNome(nome);
+                sabor.setDescricao(descricao);
+            }
             pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOSabor.class.getName()).log(Level.SEVERE, null, ex);

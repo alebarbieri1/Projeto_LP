@@ -24,7 +24,8 @@ public class ConnectionFactory {
     private final String password = "123";
     private final String protocol = "jdbc:derby://";
     private final String host = "localhost:1527/";
-    private final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    private final String driver = "org.apache.derby.jdbc.ClientDriver";
+    
 
     private ConnectionFactory() {
         try {

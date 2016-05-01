@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,7 +56,34 @@ public class DAOUsuario implements GenericDAO<Usuario> {
 
     @Override
     public List<Usuario> read() {
-        return null;
+        List<Usuario> lista = new ArrayList();
+
+        String sql = "SELECT * FROM usuario";
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                long codigo_usuario = rs.getLong("codigo_usuario");
+
+                String nome_usuario = rs.getString("nome_usuario");
+                String senha = rs.getString("senha");
+                Integer tipo_usuario = rs.getInt("tipo_usuario");
+
+                Usuario usuario = new Usuario();
+                usuario.setCodigo_usuario(codigo_usuario);
+                usuario.setNomeUsuario(nome_usuario);
+                usuario.setSenha(senha);
+                usuario.setTipoUsuario(tipo_usuario);
+                // usuario.setUsuarioInfo(null);
+                lista.add(usuario);
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
     }
 
     @Override
@@ -91,23 +119,42 @@ public class DAOUsuario implements GenericDAO<Usuario> {
     @Override
     public boolean delete(Usuario e) {
         boolean retorno = false;
-        String sql = "DELETE FROM usuario WBERE codigo_usuario=?";
+        String sql = "DELETE FROM usuario WHERE codigo_usuario=?";
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setLong(1, e.getCodigo_usuario());
             int res = pst.executeUpdate();
-            if(res>0) retorno = true;
+            if (res > 0) {
+                retorno = true;
+            }
             pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return retorno;
     }
 
     @Override
     public boolean update(Usuario e) {
-        return false;
+       boolean retorno = false;
+        String sql = "UPDATE usuario SET nome_usuario=?, senha=? WHERE codigo_usuario =?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setString(1, e.getNomeUsuario());
+            pst.setString(2, e.getSenha());
+            pst.setLong(3, e.getCodigo_usuario());
+            
+            int result = pst.executeUpdate();
+            if (result > 0) {
+                retorno = true;
+            }
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuarioInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
     }
 
 }
