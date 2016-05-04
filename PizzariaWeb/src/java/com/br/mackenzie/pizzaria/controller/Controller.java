@@ -5,10 +5,9 @@
  */
 package com.br.mackenzie.pizzaria.controller;
 
-import com.br.mackenzie.pizzaria.dao.DAOUsuario;
-import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,29 +34,13 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Controller</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Controller at " + request.getContextPath() + "</h1>");
             
-            String usuario = request.getParameter("usuario");
-            String senha = request.getParameter("senha");
-            DAOUsuario dao_usuario = new DAOUsuario();
-            Usuario u = dao_usuario.readByName(usuario);
-
-            if (u == null) {
-                out.println("<h2 style='color: red;'>Usuário não encontrado!</h2>");
-            } else if (senha.equals(u.getSenha())) {
-                out.println("<h2 style='color: green;'>Bem vindo " + usuario + "!</h2>");
-            } else {
-                out.println("<h2 style='color: red;'>Senha incorreta!</h2>");
+            String command = request.getParameter("command");
+ 
+            if (command.split("!")[0].equals("usuario")){
+                RequestDispatcher rd = request.getRequestDispatcher("UsuarioBusiness");
+                rd.forward(request, response);
             }
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 

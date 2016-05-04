@@ -1,0 +1,33 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
+<header>
+    <ul>
+        <li><a href="/pizzaria">Pizzaria</a></li>
+        <li><a href="#">Pizzas</a></li>
+        <li><a href="#">Outros Produtos</a></li>
+        <li><a href="#">Promoções</a></li>
+        <li><a href="#">Entregas</a></li>
+        <li><a href="#">Sobre</a></li>
+    </ul>
+    <section id="login">
+        <c:choose>
+            <c:when test="${usuario == null}">
+                <!-- Se não estiver logado, aparecerá a opção de login -->
+                <form method="POST" action="Controller">
+                    <input type="text" placeholder="Usuário" required="required" name="usuario"><br>
+                    <input type="password" placeholder="Senha" required="required" name="senha"><br>
+                    <input type="hidden" name="command" value="usuario!login"/>
+                    <input type="submit" value="Login"><br>
+                </form> 
+            </c:when>
+            <c:otherwise>
+                <!--Caso contrário, aparecerá a opção de fazer logout -->
+                <form method="POST" action="Controller">
+                    <input type="hidden" name="command" value="usuario!logout"/>
+                    <input style="top:50px; right: 40px; position: absolute;" type="submit" value="Logout">
+                </form>
+            </c:otherwise>
+        </c:choose>
+    </section>
+</header>

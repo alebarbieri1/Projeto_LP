@@ -32,7 +32,7 @@ public class DAOUsuarioInfo implements GenericDAO<UsuarioInfo> {
     public long create(UsuarioInfo e) {
         long resultado = -1;
         // String sql = "INSERT INTO usuario (codigo_usuario, codigo_usuarioinfo, nome_usuario, senha, tipo_usuario) VALUES (?,?,?,?,?)";
-        String sql = "INSERT INTO usuario_info (cpf, nome, telefone, endereco, cep, codigo_usuario) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO mack.usuario_info (cpf, nome, telefone, endereco, cep, codigo_usuario) VALUES (?,?,?,?,?,?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pst.setLong(1, e.getCpf());
             pst.setString(2, e.getNome());

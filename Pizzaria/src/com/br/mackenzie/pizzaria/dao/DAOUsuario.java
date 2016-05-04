@@ -31,14 +31,12 @@ public class DAOUsuario implements GenericDAO<Usuario> {
     @Override
     public long create(Usuario e) {
         long resultado = -1;
-        // String sql = "INSERT INTO usuario (codigo_usuario, codigo_usuarioinfo, nome_usuario, senha, tipo_usuario) VALUES (?,?,?,?,?)";
-        String sql = "INSERT INTO usuario (nome_usuario, senha, tipo_usuario) VALUES (?,?,?)";
+        String sql = "INSERT INTO mack.usuario2 (nome_usuario, senha, tipo_usuario, codigo_usuarioinfo) VALUES (?,?,?,?,?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            // pst.setLong(1, e.getCodigo_usuario());
-            //pst.setLong(2, e.getUsuarioInfo().getCpf());
             pst.setString(1, e.getNomeUsuario());
             pst.setString(2, e.getSenha());
             pst.setInt(3, e.getTipoUsuario());
+            pst.setLong(4, e.getUsuarioInfo().getCpf());
 
             int linhasAfetadas = pst.executeUpdate();
 
@@ -48,7 +46,12 @@ public class DAOUsuario implements GenericDAO<Usuario> {
                     resultado = rs.getLong(1);
                 }
             }
-            pst.close();
+            // Atribui o código do usuário
+            e.setCodigo_usuario(resultado);
+            
+            DAOUsuarioInfo daoUsuarioInfo = new DAOUsuarioInfo();
+            daoUsuarioInfo.create(e.getUsuarioInfo());
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -124,19 +127,19 @@ public class DAOUsuario implements GenericDAO<Usuario> {
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, name);
             ResultSet rs = pst.executeQuery();
-            while (rs.next()){
-                usuario = new Usuario();         
+            while (rs.next()) {
+                usuario = new Usuario();
                 usuario.setCodigo_usuario(rs.getLong("codigo_usuario"));
                 usuario.setNomeUsuario(rs.getString("nome_usuario"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setTipoUsuario(rs.getInt("tipo_usuario"));
-                UsuarioInfo usuario_info = new DAOUsuarioInfo().readById(rs.getLong("codigo_usuarioinfo"));
-                usuario.setUsuarioInfo(usuario_info);
+                //UsuarioInfo usuario_info = new DAOUsuarioInfo().readById(rs.getLong("codigo_usuarioinfo"));
+                //usuario.setUsuarioInfo(usuario_info);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return usuario;
     }
 
