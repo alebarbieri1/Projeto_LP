@@ -24,6 +24,7 @@
                         <label>Usuário</label><input type="text" name="nome_usuario" placeholder="Usuário" required="required"><br>
                         <label>Senha</label><input type="password" name="senha" placeholder="Senha" required="required"><br>
                         <label>Endereço</label><input type="text" name="endereco" placeholder="Endereço" required="required"><br>
+                        <label>Telefone</label><input type="text" name="telefone" placeholder="Telefone" required="required"><br>
                         <label>CEP</label><input type="text" name="cep" placeholder="CEP" required="required"><br>
                         <input type="hidden" name="command" value="usuario!cadastrar"/>
                         <input type="submit" value="Cadastrar-se">

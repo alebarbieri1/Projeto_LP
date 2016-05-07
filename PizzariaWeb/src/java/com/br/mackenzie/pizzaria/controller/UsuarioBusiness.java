@@ -39,10 +39,9 @@ public class UsuarioBusiness extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             String command = request.getParameter("command");
-            
 
-            if (command.split("!")[1].equals("login")) {
-                
+            if (command.endsWith("login")) {
+
                 String usuario = request.getParameter("usuario");
                 String senha = request.getParameter("senha");
 
@@ -60,33 +59,36 @@ public class UsuarioBusiness extends HttpServlet {
                     request.getSession().setAttribute("msgErro", "Senha Incorreta!");
                     response.sendRedirect("erro.jsp");
                 }
-            } else if (command.split("!")[1].equals("logout")) {
+            } else if (command.endsWith("logout")) {
                 // Remove todas as variáveis da sessão
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
-                
-            } else if (command.split("!")[1].equals("cadastrar")){
+
+            } else if (command.endsWith("cadastrar")) {
                 // Validar
+
                 UsuarioInfo usuarioInfo = new UsuarioInfo();
                 usuarioInfo.setCep(request.getParameter("cep"));
                 usuarioInfo.setCpf(Long.parseLong(request.getParameter("cpf")));
                 usuarioInfo.setEndereco(request.getParameter("endereco"));
                 usuarioInfo.setNome(request.getParameter("nome"));
-                
+                usuarioInfo.setTelefone(request.getParameter("telefone"));
                 Usuario u = new Usuario();
                 u.setNomeUsuario(request.getParameter("nome_usuario"));
                 u.setSenha(request.getParameter("senha"));
                 u.setTipoUsuario(1);
                 u.setUsuarioInfo(usuarioInfo);
-                
+
                 DAOUsuario daoUsuario = new DAOUsuario();
-                daoUsuario.create(u);
-                
+                DAOUsuarioInfo daoInfo = new DAOUsuarioInfo();
+                u.setCodigo_usuario(daoUsuario.create(u));
+                usuarioInfo.setUsuario(u);
+                daoInfo.create(usuarioInfo);
+
                 Usuario usuarioAutenticado = daoUsuario.readByName(u.getNomeUsuario());
                 request.getSession().setAttribute("usuario", usuarioAutenticado);
                 response.sendRedirect("home.jsp");
-                
-                
+
             }
         }
     }

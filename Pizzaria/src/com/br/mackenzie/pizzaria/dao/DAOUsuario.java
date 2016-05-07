@@ -31,12 +31,12 @@ public class DAOUsuario implements GenericDAO<Usuario> {
     @Override
     public long create(Usuario e) {
         long resultado = -1;
-        String sql = "INSERT INTO mack.usuario2 (nome_usuario, senha, tipo_usuario, codigo_usuarioinfo) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO usuario (nome_usuario, senha, tipo_usuario) VALUES (?,?,?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pst.setString(1, e.getNomeUsuario());
             pst.setString(2, e.getSenha());
             pst.setInt(3, e.getTipoUsuario());
-            pst.setLong(4, e.getUsuarioInfo().getCpf());
+            
 
             int linhasAfetadas = pst.executeUpdate();
 
@@ -100,7 +100,7 @@ public class DAOUsuario implements GenericDAO<Usuario> {
 
             while (rs.next()) {
                 long codigo_usuario = rs.getLong("codigo_usuario");
-                long codigo_usuarioinfo = rs.getLong("codigo_usuarioinfo");
+          
                 String nome_usuario = rs.getString("nome_usuario");
                 String senha = rs.getString("senha");
                 Integer tipo_usuario = rs.getInt("tipoUsuario");

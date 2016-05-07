@@ -37,7 +37,7 @@ public class Controller extends HttpServlet {
             
             String command = request.getParameter("command");
  
-            if (command.split("!")[0].equals("usuario")){
+            if (command.startsWith("usuario")){
                 RequestDispatcher rd = request.getRequestDispatcher("UsuarioBusiness");
                 rd.forward(request, response);
             }
