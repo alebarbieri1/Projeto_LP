@@ -8,6 +8,7 @@
         <li><a href="#">Outros Produtos</a></li>
         <li><a href="#">Promoções</a></li>
         <li><a href="#">Entregas</a></li>
+        <li><a href="gerenciar.jsp"</a>Gerenciar</li>
         <li><a href="#">Sobre</a></li>
     </ul>
     <section id="login">
