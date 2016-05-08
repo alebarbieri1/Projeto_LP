@@ -65,8 +65,7 @@ public class UsuarioBusiness extends HttpServlet {
                 response.sendRedirect("index.jsp");
 
             } else if (command.endsWith("cadastrar")) {
-                // Validar
-
+                
                 UsuarioInfo usuarioInfo = new UsuarioInfo();
                 usuarioInfo.setCep(request.getParameter("cep"));
                 usuarioInfo.setCpf(Long.parseLong(request.getParameter("cpf")));
