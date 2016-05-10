@@ -9,6 +9,7 @@ import com.br.mackenzie.pizzaria.dao.DAOTipo;
 import com.br.mackenzie.pizzaria.model.javabeans.Tipo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,15 +36,7 @@ public class TipoBusiness extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet TipoBusiness</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet TipoBusiness at " + request.getContextPath() + "</h1>");
-
+            
             String command = request.getParameter("command");
             if (command.endsWith("cadastrar")) {
                 String nome = request.getParameter("nome");
@@ -51,17 +44,27 @@ public class TipoBusiness extends HttpServlet {
                 t.setNome(nome);
                 DAOTipo tipodao = new DAOTipo();
                 tipodao.create(t);
+                RequestDispatcher rd = request.getRequestDispatcher("listarTipo.jsp");
+                request.setAttribute("tipos", tipodao.read());
+                rd.forward(request, response);
                 
-                response.sendRedirect("index.jsp");
-            } else if (command.endsWith("deletar")) {
+            } else if (command.endsWith("remover")) {
                 long codigo = Long.parseLong(request.getParameter("codigo"));
                 Tipo t = new Tipo();
                 t.setCodigo(codigo);
                 DAOTipo tipodao = new DAOTipo();
                 tipodao.delete(t);
+                RequestDispatcher rd = request.getRequestDispatcher("listarTipo.jsp");
+                request.setAttribute("tipos", tipodao.read());
+                rd.forward(request, response);
                 
-                response.sendRedirect("index.jsp");
-            }else if (command.endsWith("alterar")) {
+            } else if (command.endsWith("alterar")) {
+                
+                RequestDispatcher rd = request.getRequestDispatcher("alterarTipo.jsp");
+                request.setAttribute("codigo", request.getParameter("codigo"));
+                rd.forward(request, response);
+
+            } else if(command.endsWith("editar")){
                 long codigo = Long.parseLong(request.getParameter("codigo"));
                 String nome = request.getParameter("nome");
                 Tipo t = new Tipo();
@@ -70,11 +73,15 @@ public class TipoBusiness extends HttpServlet {
                 DAOTipo tipodao = new DAOTipo();
                 tipodao.update(t);
                 
-                response.sendRedirect("index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("listarTipo.jsp");
+                request.setAttribute("tipos", tipodao.read());
+                rd.forward(request, response);
+            } 
+            else if (command.endsWith("listar")){
+                request.setAttribute("tipos", new DAOTipo().read());
+                RequestDispatcher rd = request.getRequestDispatcher("listarTipo.jsp");
+                rd.forward(request, response);
             }
-
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 

@@ -18,10 +18,12 @@
             <section id="cadastro">
                 <form method="POST" action="Controller">
                     <fieldset>
-                        <legend>Cadastrar</legend>
-                        <label>Nome do Tipo</label><input type="text" name="nome" placeholder="Nome" required="required"><br>
-                        <input type="hidden" name="command" value="tipo!cadastrar"/>
-                        <input type="submit" value="Cadastrar">
+                        <legend>Alterar</legend>
+                        <label>Novo nome do Tipo</label>
+                        <input type="text" name="nome" placeholder="Nome" required="required"><br>
+                        <input type="hidden" name="command" value="tipo!editar"/>
+                        <input type="hidden" name="codigo" value="${codigo}"/>
+                        <input type="submit" value="Alterar">
                     </fieldset>
                 </form>
             </section>

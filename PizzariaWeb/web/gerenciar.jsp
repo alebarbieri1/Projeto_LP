@@ -19,6 +19,13 @@
         </c:if>
         <%@include file="WEB-INF/jspf/header.jspf" %>
         <h1>Painel de Controle</h1>
-        <a href="tipo.jsp">Tipo</a>
+        <form action="Controller" method="POST">
+            <h3 style="color: blue;">Tipo</h3>
+            <input type="hidden" name="command" value="tipo!listar"/>
+            <input style="padding: 3px;" type="submit" value="Listar">
+        </form>
+        <footer>
+            <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+        </footer>
     </body>
 </html>
