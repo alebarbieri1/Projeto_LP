@@ -15,17 +15,17 @@
         <c:choose>
             <c:when test="${usuario == null}">
                 <!-- Se não estiver logado, aparecerá a opção de login -->
-                <form method="POST" action="Controller">
+                <form method="POST" action="${pageContext.request.contextPath}/usuario!login.action">
                     <input type="text" placeholder="Usuário" required="required" name="usuario"><br>
                     <input type="password" placeholder="Senha" required="required" name="senha"><br>
-                    <input type="hidden" name="command" value="usuario!login"/>
+                    <input type="hidden" name="command" value="usuario!login.action"/>
                     <input type="submit" value="Login"><br>
                 </form> 
             </c:when>
             <c:otherwise>
                 <!--Caso contrário, aparecerá a opção de fazer logout -->
-                <form method="POST" action="Controller">
-                    <input type="hidden" name="command" value="usuario!logout"/>
+                <form method="POST" action="${pageContext.request.contextPath}/usuario!logout.action">
+                    <input type="hidden" name="command" value="usuario!logout.action"/>
                     <input style="top:50px; right: 40px; position: absolute;" type="submit" value="Logout">
                 </form>
             </c:otherwise>

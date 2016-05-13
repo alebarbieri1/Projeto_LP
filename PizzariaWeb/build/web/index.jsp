@@ -17,7 +17,7 @@
         <article>
             <c:if test="${usuario == null}">
                 <section id="cadastro">
-                    <form method="POST" action="Controller">
+                    <form method="POST" action="${pageContext.request.contextPath}/usuario!cadastrar.action">
                         <fieldset>
                             <legend>Cadastre-se</legend>
                             <label>Nome Completo</label><input type="text" name="nome" placeholder="Nome" required="required"><br>
@@ -27,14 +27,15 @@
                             <label>Endereço</label><input type="text" name="endereco" placeholder="Endereço" required="required"><br>
                             <label>Telefone</label><input type="text" name="telefone" placeholder="Telefone" required="required"><br>
                             <label>CEP</label><input type="text" name="cep" placeholder="CEP" required="required"><br>
-                            <input type="hidden" name="command" value="usuario!cadastrar"/>
+                            <input type="hidden" name="command" value="usuario!cadastrar.action"/>
                             <input type="submit" value="Cadastrar-se">
                         </fieldset>
                     </form>
                 </section>
             </c:if>
             <c:if test="${usuario != null}">
-                <h1>Confira as promoções de hoje :)</h1>
+                <h1>Seja bem vindo à Bizarro's Pizza</h1><br>
+                <img src="imgs/pizza1.jpg" alt="Pizza" title="Pizza"/>
             </c:if>
             <footer>
                 <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
