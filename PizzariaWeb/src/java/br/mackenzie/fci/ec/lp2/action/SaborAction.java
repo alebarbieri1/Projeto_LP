@@ -70,12 +70,10 @@ public class SaborAction extends ActionSupport {
     
     // Redireciona para a página de alteração
     public String alterar(){
-        Long codigo_tipo = Long.parseLong(this.getRequest().getParameter("cod_tipo"));
-        Tipo tipo = new DAOTipo().readById(codigo_tipo);
         Long codigo = Long.parseLong(this.getRequest().getParameter("codigo"));
         Sabor sabor = new DAOSabor().readById(codigo);
         sabor.setCodigo(codigo);
-        sabor.setTipo(tipo);
+       
         this.getRequest().setAttribute("sabor", sabor);
         return "WEB-INF/jsp/sabor/alterarSabor.jsp";
     }
