@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Inmetrics
+ * @author Alexandre Lopes
  */
 public abstract class ActionSupport implements Action {
     

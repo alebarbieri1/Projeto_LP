@@ -1,9 +1,8 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 27/04/2016, 22:25:37
-    Author     : Alexandre Lopes
+    Document   : cadastrarSabor
+    Created on : 17/05/2016, 09:47:04
+    Author     : Inmetrics
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,16 +15,23 @@
         <%@include file="../../jspf/header.jspf" %>
         <article>
             <section id="cadastro">
-                <form method="POST" action="${pageContext.request.contextPath}/tipo!cadastrar.action">
+                <form method="POST" action="${pageContext.request.contextPath}/sabor!cadastrar.action">
                     <fieldset>
-                        <legend>Cadastrar Tipo</legend>
-                        <label>Nome do Tipo</label>
+                        <legend>Cadastrar Sabor</legend>
+                        
+                        <h5 style="display: inline;">Tipo</h5><br>
+                        <select name="tipo" style="width: 150px;">
+                            <c:forEach var="tipo" items="${tipos}">
+                                <option value="${tipo.codigo}">${tipo.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
                         <input type="text" name="nome" placeholder="Nome" required="required"><br>
+                        <input type="text" name="descricao" placeholder="Descrição" required="required"><br>
                         <input type="submit" value="Cadastrar">
                     </fieldset>
                 </form>
             </section>
-
             <footer>
                 Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>

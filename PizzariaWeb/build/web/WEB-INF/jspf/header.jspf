@@ -26,7 +26,7 @@
                 <!--Caso contrário, aparecerá a opção de fazer logout -->
                 <form method="POST" action="${pageContext.request.contextPath}/usuario!logout.action">
                     <input type="hidden" name="command" value="usuario!logout.action"/>
-                    <input style="top:50px; right: 40px; position: absolute;" type="submit" value="Logout">
+                    <input type="submit" value="Logout">
                 </form>
             </c:otherwise>
         </c:choose>

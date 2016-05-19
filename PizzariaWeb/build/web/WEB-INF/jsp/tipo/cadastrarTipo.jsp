@@ -18,7 +18,7 @@
             <section id="cadastro">
                 <form method="POST" action="${pageContext.request.contextPath}/tipo!cadastrar.action">
                     <fieldset>
-                        <legend>Cadastrar</legend>
+                        <legend>Cadastrar Tipo</legend>
                         <label>Nome do Tipo</label>
                         <input type="text" name="nome" placeholder="Nome" required="required"><br>
                         <input type="submit" value="Cadastrar">
@@ -27,7 +27,7 @@
             </section>
 
             <footer>
-                <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>
         </article>
     </body>

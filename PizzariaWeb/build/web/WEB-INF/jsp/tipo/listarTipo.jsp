@@ -18,14 +18,14 @@
         <article>
             <h1>Tipos</h1><hr>
             <a href="${pageContext.request.contextPath}/tipo!novo.action">Novo</a><br><br><hr>
-            <ul>
+            <ul style="list-style: none;">
                 <c:forEach var="tipo" items="${tipos}">
                     <li><b><c:out value="${tipo.nome}"/></b>&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/tipo!alterar.action?codigo=${tipo.codigo}">alterar</a>&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/tipo!remover.action?codigo=${tipo.codigo}">remover</a></li>                               
                 </c:forEach>
             </ul>
             <hr>
             <footer>
-                <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>
         </article>
     </body>

@@ -19,16 +19,17 @@
                 <form method="POST" action="${pageContext.request.contextPath}/tipo!editar.action">
                     <fieldset>
                         <legend>Alterar</legend>
-                        <label>Novo nome do Tipo</label>
-                        <input type="text" name="nome" placeholder="Nome" required="required"><br>
-                        <input type="hidden" name="codigo" value="${codigo}"/>
+                        <label>Novo nome do Tipo</label><br><br>
+                        <label>Codigo</label>
+                        <input type="text" name="codigo" value="${tipo.codigo}" readonly="readonly"/><br>
+                        <label>Nome</label>
+                        <input type="text" name="nome" placeholder="Nome" required="required" value="${tipo.nome}"><br><br>
                         <input type="submit" value="Alterar">
                     </fieldset>
                 </form>
             </section>
-
             <footer>
-                <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>
         </article>
     </body>

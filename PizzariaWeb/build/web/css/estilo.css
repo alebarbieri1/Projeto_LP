@@ -2,20 +2,24 @@
     Created on : 27/04/2016, 22:29:18
     Author     : Alexandre Lopes
 */
-body {
+html {
+    margin-left: 3px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+    font-family: arial;
     width: 100%;
     height: 100%;
-    position: relative;
 }
-
-*{
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
+body {
+    width: 100%;
+    min-height: 98%;
+    position: relative;
+    overflow: hidden;
+    background-color: lightgray;
 }
 
 header {
-    width: 100%;
+    width: 98%;
     background-color:#d6d6c2;
 }
 
@@ -49,7 +53,7 @@ header ul li a:hover {
 #login {
     position: absolute;
     left: 81%;
-    width: 19%;
+    width: 15%;
     top: 0px;
     background-color:#d6d6c2;
 }
@@ -60,10 +64,9 @@ header ul li a:hover {
 }
 
 article {
-    width: 100%;
+    width: 98%;
     text-align: center;
     padding-top: 30px;
-    background-color: whitesmoke;
 }
 
 #cadastro fieldset {
@@ -73,25 +76,24 @@ article {
 #cadastro {
     width: 50%;
     margin-left: 25%;
-    margin-bottom: 45px;
 }
 
 #cadastro input {
     padding: 10px;
-    margin: 6px 5px;
+    margin: 3px 2px;
 }
 
 #cadastro label {
-   display: inline-block;
-   width: 170px;
-   text-align: justify;
+    display: inline-block;
+    width: 170px;
+    text-align: justify;
 }
 
 footer {
-    width: 100%;
-    padding-top: 20px;
+    width: 98%;
     text-align: justify;
     background-color:#d6d6c2;
     bottom: 0;
     position: absolute;
+    font-size: 12px;
 }

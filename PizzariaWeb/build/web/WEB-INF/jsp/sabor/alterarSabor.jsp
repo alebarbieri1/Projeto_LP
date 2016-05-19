@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 27/04/2016, 22:25:37
-    Author     : Alexandre Lopes
+    Document   : alterarSabor
+    Created on : 17/05/2016, 09:57:13
+    Author     : Inmetrics
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,14 +16,16 @@
         <%@include file="../../jspf/header.jspf" %>
         <article>
             <section id="cadastro">
-                <form method="POST" action="${pageContext.request.contextPath}/tipo!editar.action">
+                <form method="POST" action="${pageContext.request.contextPath}/sabor!editar.action">
                     <fieldset>
                         <legend>Alterar</legend>
-                        <label>Novo nome do Tipo</label><br><br>
-                        <label>Codigo</label>
-                        <input type="text" name="codigo" value="${tipo.codigo}" readonly="readonly"/><br>
+                        <label>Alterar dados do sabor</label><br><br>
                         <label>Nome</label>
-                        <input type="text" name="nome" placeholder="Nome" required="required" value="${tipo.nome}"><br><br>
+                        <input type="text" name="nome" placeholder="Nome" required="required" value="${sabor.nome}"><br>
+                        <label>Descrição</label>
+                        <input type="text" name="descricao" placeholder="Descrição" required="required" value="${sabor.descricao}"><br>
+                        <input type="hidden" name="codigo" value="${sabor.codigo}"/>
+                        <input type="hidden" name="codigo_tipo" value="${sabor.tipo.codigo}"/><br>
                         <input type="submit" value="Alterar">
                     </fieldset>
                 </form>

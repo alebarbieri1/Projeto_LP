@@ -27,7 +27,6 @@
                             <label>Endereço</label><input type="text" name="endereco" placeholder="Endereço" required="required"><br>
                             <label>Telefone</label><input type="text" name="telefone" placeholder="Telefone" required="required"><br>
                             <label>CEP</label><input type="text" name="cep" placeholder="CEP" required="required"><br>
-                            <input type="hidden" name="command" value="usuario!cadastrar.action"/>
                             <input type="submit" value="Cadastrar-se">
                         </fieldset>
                     </form>
@@ -38,7 +37,7 @@
                 <img src="imgs/pizza1.jpg" alt="Pizza" title="Pizza"/>
             </c:if>
             <footer>
-                <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>
         </article>
     </body>

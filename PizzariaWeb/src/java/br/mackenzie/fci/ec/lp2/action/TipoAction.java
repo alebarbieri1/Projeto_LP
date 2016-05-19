@@ -55,7 +55,9 @@ public class TipoAction extends ActionSupport {
     
     // Redireciona para a página de alteração
     public String alterar(){
-        this.getRequest().setAttribute("codigo", this.getRequest().getParameter("codigo"));
+        Long codigo = Long.parseLong(this.getRequest().getParameter("codigo"));
+        Tipo tipo = new DAOTipo().readById(codigo);
+        this.getRequest().setAttribute("tipo", tipo);
         return "WEB-INF/jsp/tipo/alterarTipo.jsp";
     }
     

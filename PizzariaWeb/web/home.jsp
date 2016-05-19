@@ -18,6 +18,10 @@
             <c:redirect url="index.jsp"></c:redirect>
         </c:if>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h1 style="position: absolute; top:200px;">Bem vindo ${usuario.nomeUsuario}</h1>
+        <h4>Bem vindo ${usuario.nomeUsuario}</h4>
+        <footer>
+            Desenvolvido por Alexandre Barbieri e Felipe Teixeira
+        </footer>
     </body>
+
 </html>

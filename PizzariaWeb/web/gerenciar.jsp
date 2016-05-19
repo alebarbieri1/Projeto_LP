@@ -20,9 +20,12 @@
         <%@include file="WEB-INF/jspf/header.jspf" %>
         <h1>Painel de Controle</h1>
             <h3 style="color: blue;">Tipo</h3>
-            <a href="${pageContext.request.contextPath}/tipo!listar.action">Listar</a>
+            <a href="${pageContext.request.contextPath}/tipo!listar.action">Gerenciar</a>
+            <br><br>
+            <h3 style="color: blue;">Sabor</h3>
+            <a href="${pageContext.request.contextPath}/sabor!listar.action">Gerenciar</a>
         <footer>
-            <h3>Desenvolvido por Alexandre Barbieri e Felipe Teixeira</h3>
+            Desenvolvido por Alexandre Barbieri e Felipe Teixeira
         </footer>
     </body>
 </html>
