@@ -95,5 +95,26 @@ footer {
     background-color:#d6d6c2;
     bottom: 0;
     position: absolute;
-    font-size: 12px;
+    font-size: 15px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 4px;
+}
+
+table thead {
+    background-color: lightslategrey;
+}
+
+table tbody tr:hover {
+    background-color: white;
+}
+
+table a {
+    display:block;
 }

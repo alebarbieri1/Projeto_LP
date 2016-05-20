@@ -22,7 +22,7 @@ public class ProdutoAction extends ActionSupport {
         long sabor = Long.parseLong(this.getRequest().getParameter("sabor"));
         double preco = Double.parseDouble(this.getRequest().getParameter("preco"));
         
-        Sabor s= new Sabor();
+        Sabor s = new Sabor();
         s.setCodigo(sabor);
         
         Produto p = new Produto();

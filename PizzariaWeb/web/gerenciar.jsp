@@ -18,12 +18,44 @@
             <c:redirect url="index.jsp"></c:redirect>
         </c:if>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h1>Painel de Controle</h1>
-            <h3 style="color: blue;">Tipo</h3>
-            <a href="${pageContext.request.contextPath}/tipo!listar.action">Gerenciar</a>
-            <br><br>
-            <h3 style="color: blue;">Sabor</h3>
-            <a href="${pageContext.request.contextPath}/sabor!listar.action">Gerenciar</a>
+        <article>
+            <h1>Painel de Controle</h1>
+            <hr>
+            <table style="width: 50%; margin-left: 25%;">
+                <thead>
+                    <tr>
+                        <th>Gerenciar</th>
+                        <th>Ação</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Tipo
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/tipo!listar.action"><img src="${pageContext.request.contextPath}/imgs/iconeGerenciar.png" alt="Gerenciar" title="Gerenciar"/></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sabor
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/sabor!listar.action"><img src="${pageContext.request.contextPath}/imgs/iconeGerenciar.png" alt="Gerenciar" title="Gerenciar"/></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Produto
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/produto!listar.action"><img src="${pageContext.request.contextPath}/imgs/iconeGerenciar.png" alt="Gerenciar" title="Gerenciar"/></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
         <footer>
             Desenvolvido por Alexandre Barbieri e Felipe Teixeira
         </footer>

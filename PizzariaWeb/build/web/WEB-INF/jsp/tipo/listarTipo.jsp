@@ -18,11 +18,22 @@
         <article>
             <h1>Tipos</h1><hr>
             <a href="${pageContext.request.contextPath}/tipo!novo.action">Novo</a><br><br><hr>
-            <ul style="list-style: none;">
-                <c:forEach var="tipo" items="${tipos}">
-                    <li><b><c:out value="${tipo.nome}"/></b>&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/tipo!alterar.action?codigo=${tipo.codigo}">alterar</a>&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/tipo!remover.action?codigo=${tipo.codigo}">remover</a></li>                               
-                </c:forEach>
-            </ul>
+            <table style="width: 50%; margin-left: 25%;">
+                <thead>
+                <th>Tipo</th>
+                <th>Editar</th>
+                <th>Remover</th>
+                </thead>
+                <tbody>
+                    <c:forEach var="tipo" items="${tipos}">
+                        <tr>
+                            <td>${tipo.nome}</td>
+                            <td><a href="${pageContext.request.contextPath}/tipo!alterar.action?codigo=${tipo.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeEditar.png" alt="Editar" title="Editar"/></a></td>      
+                            <td><a href="${pageContext.request.contextPath}/tipo!remover.action?codigo=${tipo.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeRemover.png" alt="Remover" title="Remover"/></a></td>
+                        </tr>                     
+                    </c:forEach>
+                </tbody>
+            </table>
             <hr>
             <footer>
                 Desenvolvido por Alexandre Barbieri e Felipe Teixeira
