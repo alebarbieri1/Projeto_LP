@@ -10,14 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pizzaria - Tipos</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="../../jspf/header.jspf" %>
         <article>
             <h1>Tipos</h1><hr>
-            <a href="${pageContext.request.contextPath}/tipo!novo.action">Novo</a><br><br><hr>
+            <a href="${pageContext.request.contextPath}/tipo!novo.action" class="botaoNovo">Novo</a><br><br><hr>
             <table style="width: 50%; margin-left: 25%;">
                 <thead>
                 <th>Tipo</th>

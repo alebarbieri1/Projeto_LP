@@ -19,7 +19,7 @@
                 <section id="cadastro">
                     <form method="POST" action="${pageContext.request.contextPath}/usuario!cadastrar.action">
                         <fieldset>
-                            <legend>Cadastre-se</legend>
+                            <legend style="font-size: 18px;">Cadastro</legend>
                             <label>Nome Completo</label><input type="text" name="nome" placeholder="Nome" required="required"><br>
                             <label>CPF</label><input type="text" name="cpf" placeholder="CPF" required="required"><br>
                             <label>Usuário</label><input type="text" name="nome_usuario" placeholder="Usuário" required="required"><br>
@@ -33,7 +33,7 @@
                 </section>
             </c:if>
             <c:if test="${usuario != null}">
-                <h1>Seja bem vindo à Bizarro's Pizza</h1><br>
+                <h1>Seja bem-vindo à Pizzaria ...</h1><br>
                 <img src="imgs/pizza1.jpg" alt="Pizza" title="Pizza"/>
             </c:if>
             <footer>

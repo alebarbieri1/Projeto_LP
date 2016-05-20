@@ -18,7 +18,7 @@
             <c:redirect url="index.jsp"></c:redirect>
         </c:if>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h4>Bem vindo ${usuario.nomeUsuario}</h4>
+        <div style="border-radius: 8px; color: #4F8A10; width: 90%; background-color: #DFF2BF; margin-top: 10px; padding: 5px; font-weight: bold;">Bem-vindo ${usuario.nomeUsuario}!</div>
         <footer>
             Desenvolvido por Alexandre Barbieri e Felipe Teixeira
         </footer>

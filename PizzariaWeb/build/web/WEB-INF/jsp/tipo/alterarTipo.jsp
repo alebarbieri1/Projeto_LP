@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tipo</title>
+        <title>Pizzaria - Alterar Tipo</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -20,8 +20,8 @@
                     <fieldset>
                         <legend>Alterar</legend>
                         <label>Novo nome do Tipo</label><br><br>
-                        <label>Codigo</label>
-                        <input type="text" name="codigo" value="${tipo.codigo}" readonly="readonly"/><br>
+                        <label>Código</label>
+                        <input style="background-color: lightgray;" type="text" name="codigo" value="${tipo.codigo}" readonly="readonly"/><br>
                         <label>Nome</label>
                         <input type="text" name="nome" placeholder="Nome" required="required" value="${tipo.nome}"><br><br>
                         <input type="submit" value="Alterar">

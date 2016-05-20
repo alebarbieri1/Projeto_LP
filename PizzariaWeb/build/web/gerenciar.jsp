@@ -10,15 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pizzaria - Painel de Controle</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <c:if test="${usuario == null}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <article>
+        <c:if test="${usuario == null}">
+            <div style="border-radius: 8px; color: #D63301; width: 90%; background-color: #FFCCBA; margin-top: 10px; padding: 5px; font-weight: bold;">É necessário estar logado e ser um administrador para ter acesso à esta página!</div>
+        </c:if>
+        <c:if test="${usuario != null}">
+            <article>
             <h1>Painel de Controle</h1>
             <hr>
             <table style="width: 50%; margin-left: 25%;">
@@ -56,6 +57,7 @@
                 </tbody>
             </table>
         </article>
+        </c:if>
         <footer>
             Desenvolvido por Alexandre Barbieri e Felipe Teixeira
         </footer>

@@ -14,6 +14,9 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h1 style="position: absolute; top: 200px;">Erro: ${msgErro}</h1>
+        <div style="border-radius: 8px; color: #D63301; width: 90%; background-color: #FFCCBA; margin-top: 10px; padding: 5px; font-weight: bold;">Erro: ${msgErro}</div>
+        <footer>
+            Desenvolvido por Alexandre Barbieri e Felipe Teixeira
+        </footer>
     </body>
 </html>
