@@ -19,7 +19,7 @@ public class ConnectionFactory {
 
     private static ConnectionFactory instance;
     private Connection connection;
-    private final String db = "pizzaria;useUnicode=yes&characterEncoding=UTF-8";
+    private final String db = "pizzaria";
     private final String username = "mack";
     private final String password = "123";
     private final String protocol = "jdbc:derby://";

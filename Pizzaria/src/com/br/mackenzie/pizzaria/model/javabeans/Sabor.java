@@ -7,6 +7,7 @@ package com.br.mackenzie.pizzaria.model.javabeans;
 
 import java.io.Serializable;
 
+
 /**
  *
  * @author Felipe Teixeira

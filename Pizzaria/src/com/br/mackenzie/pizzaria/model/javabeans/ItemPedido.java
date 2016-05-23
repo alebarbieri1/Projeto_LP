@@ -5,11 +5,13 @@
  */
 package com.br.mackenzie.pizzaria.model.javabeans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Felipe Teixeira
  */
-public class ItemPedido {
+public class ItemPedido implements Serializable{
 
     private Produto produto;
     private int quantidade;
