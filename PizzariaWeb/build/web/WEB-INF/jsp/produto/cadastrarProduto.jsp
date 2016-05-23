@@ -9,9 +9,35 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Tipo</title>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../../jspf/header.jspf" %>
+        <article>
+            <section id="cadastro">
+                <form method="POST" action="${pageContext.request.contextPath}/produto!cadastrar.action">
+                    <fieldset>
+                        <legend>Cadastrar Produto</legend>
+                        
+                        <h5 style="display: inline;">Tipo</h5><br>
+                        <select name="sabor" style="width: 150px;">
+                            <c:forEach var="sabor" items="${sabores}">
+                                <option value="${sabor.codigo}">${sabor.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
+                        <input type="text" name="nome" placeholder="Nome" required="required"><br>
+                        <input type="text" name="descricao" placeholder="Descrição" required="required"><br>
+                        <input type="text" name="preco" placeholder="Preço" required="required"><br>
+                        
+                        <input type="submit" value="Cadastrar">
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
+            </footer>
+        </article>
     </body>
 </html>

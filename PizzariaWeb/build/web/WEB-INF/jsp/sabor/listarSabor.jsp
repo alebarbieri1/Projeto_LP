@@ -16,7 +16,7 @@
         <%@include file="../../jspf/header.jspf" %>
         <article>
             <h1>Sabores</h1><hr>
-            <a href="${pageContext.request.contextPath}/tipo!novo.action" class="botaoNovo">Novo</a><br><br><hr>
+            <a href="${pageContext.request.contextPath}/sabor!novo.action" class="botaoNovo">Novo</a><br><br><hr>
             <table  style="width: 50%; margin-left: 25%;">
                 <thead>
                 <th>Tipo</th>
