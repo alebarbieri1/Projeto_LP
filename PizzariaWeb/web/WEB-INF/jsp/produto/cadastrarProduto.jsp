@@ -20,7 +20,7 @@
                     <fieldset>
                         <legend>Cadastrar Produto</legend>
                         
-                        <h5 style="display: inline;">Tipo</h5><br>
+                        <h5 style="display: inline;">Sabor</h5><br>
                         <select name="sabor" style="width: 150px;">
                             <c:forEach var="sabor" items="${sabores}">
                                 <option value="${sabor.codigo}">${sabor.nome}</option>

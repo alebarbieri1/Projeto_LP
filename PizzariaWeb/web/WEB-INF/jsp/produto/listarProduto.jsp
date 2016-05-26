@@ -34,8 +34,8 @@
                             <td>${produto.nome}</td>
                             <td>${produto.descricao}</td>
                             <td>${produto.preco}</td>
-                            <td><a href="${pageContext.request.contextPath}/produto!alterar.action?codigo=${produto.codigo}&cod_tipo=${produto.sabor.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeEditar.png" alt="Editar" title="Editar"/></a></td>
-                            <td><a href="${pageContext.request.contextPath}/produto!remover.action?codigo=${sabor.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeRemover.png" alt="Remover" title="Remover"/></a></td>
+                            <td><a href="${pageContext.request.contextPath}/produto!alterar.action?codigo=${produto.codigo}&cod_sabor=${produto.sabor.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeEditar.png" alt="Editar" title="Editar"/></a></td>
+                            <td><a href="${pageContext.request.contextPath}/produto!remover.action?codigo=${produto.codigo}"><img src="${pageContext.request.contextPath}/imgs/iconeRemover.png" alt="Remover" title="Remover"/></a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

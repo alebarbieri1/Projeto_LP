@@ -21,6 +21,7 @@ public class ProdutoAction extends ActionSupport {
         String nome = this.getRequest().getParameter("nome");
         long sabor = Long.parseLong(this.getRequest().getParameter("sabor"));
         double preco = Double.parseDouble(this.getRequest().getParameter("preco"));
+        String descricao = this.getRequest().getParameter("descricao");
         
         Sabor s = new Sabor();
         s.setCodigo(sabor);
@@ -29,6 +30,7 @@ public class ProdutoAction extends ActionSupport {
         p.setNome(nome);
         p.setPreco(preco);
         p.setSabor(s);
+        p.setDescricao(descricao);
         
         DAOProduto produtodao = new DAOProduto();
         produtodao.create(p);

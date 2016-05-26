@@ -36,11 +36,13 @@ public class DAOProduto implements GenericDAO<Produto> {
     @Override
     public long create(Produto p) {
         long resultado = -1;
-        String sql = "INSERT INTO produto(codigo_sabor, nome, preco) VALUES(?,?,?)";
+        String sql = "INSERT INTO produto(codigo_sabor, nome, preco, descricao) VALUES(?,?,?,?)";
         try (PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pst.setLong(1, p.getSabor().getCodigo());
             pst.setString(2, p.getNome());
             pst.setDouble(3, p.getPreco());
+            pst.setString(4, p.getDescricao());
+            
             int linhasAfetadas = pst.executeUpdate();
             if (linhasAfetadas > 0) {
                 ResultSet rs = pst.getGeneratedKeys();
@@ -48,7 +50,6 @@ public class DAOProduto implements GenericDAO<Produto> {
                     resultado = rs.getLong(1);
                 }
             }
-
             pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,6 +71,7 @@ public class DAOProduto implements GenericDAO<Produto> {
                 Sabor sabor = new DAOSabor().readById(codigo_sabor);
                 String nome = rs.getString("nome");
                 double preco = rs.getDouble("preco");
+                String descricao = rs.getString("descricao");
 
                 Produto produto = new Produto();
 
@@ -77,6 +79,7 @@ public class DAOProduto implements GenericDAO<Produto> {
                 produto.setSabor(sabor);
                 produto.setNome(nome);
                 produto.setPreco(preco);
+                produto.setDescricao(descricao);
                 produtos.add(produto);
             }
             pst.close();
