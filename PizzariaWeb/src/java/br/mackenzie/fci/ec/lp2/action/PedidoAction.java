@@ -23,15 +23,15 @@ public class PedidoAction extends ActionSupport {
     // Insere no banco
     public String finalizar() {
         String[] produtos = this.getRequest().getParameterValues("selecionados");
-        String cliente = this.getRequest().getParameter("cliente");
+        String usuario = this.getRequest().getParameter("usuario");
         
-        if(cliente==null|| cliente.equals("0")) return "Home.jsp";
-        if(produtos==null) return "Home.jsp";
+        if(usuario==null || usuario.equals("0")) return "home.jsp";
+        if(produtos==null) return "home.jsp";
         
-        long codigoC = Long.parseLong(cliente);
+        long codigoU = Long.parseLong(usuario);
         Pedido p = new Pedido();
         p.setData(new Date());
-        p.setUsuario(new DAOUsuario().readById(codigoC));
+        p.setUsuario(new DAOUsuario().readById(codigoU));
         
         List<ItemPedido> ls = new ArrayList();
         DAOProduto daop = new DAOProduto();

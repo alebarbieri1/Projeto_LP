@@ -26,7 +26,7 @@
                     <b>Selecionar: </b><input style="transform: scale(1.5);" type="checkbox" name="pizza" value="${pizza.codigo}">
                     <br><br><hr>
                 </c:forEach>
-                    <input type="hidden" value="${usuario.codigo_usuario}">
+                    <input type="hidden" name="usuario" value="${usuario.codigo_usuario}">
                     <input style="padding: 15px;" type="submit" value="Finalizar Pedido">
                     <br><br><hr>
             </form>
