@@ -25,8 +25,14 @@ public class PedidoAction extends ActionSupport {
         String[] produtos = this.getRequest().getParameterValues("selecionados");
         String usuario = this.getRequest().getParameter("usuario");
         
-        if(usuario==null || usuario.equals("0")) return "home.jsp";
-        if(produtos==null) return "home.jsp";
+        if (usuario == null || usuario.equals("")){
+            this.getRequest().setAttribute("msgErro", "Você precisa estar logado para efetuar um pedido!");
+            return "erro.jsp";
+        }
+        if (produtos==null){
+            this.getRequest().setAttribute("msgErro", "Selecione ao menos uma pizza!");
+            return "erro.jsp";
+        }
         
         long codigoU = Long.parseLong(usuario);
         Pedido p = new Pedido();
@@ -46,9 +52,11 @@ public class PedidoAction extends ActionSupport {
         p.setItensPedido(ls);
         p.setPrecoTotal();
         DAOPedido daope = new DAOPedido();
-        daope.create(p);
-        this.getRequest().setAttribute("pedidos", new DAOPedido().read());
-        return "WEB-INF/jsp/pedido/listarPedidos.jsp";
+        long codigoPedido = daope.create(p);
+        p.setCodigo(codigoPedido);
+        this.getRequest().setAttribute("pedido", p);
+        
+        return "WEB-INF/jsp/pedido/listarPedido.jsp";
     }
  
 }

@@ -6,7 +6,6 @@
 package com.br.mackenzie.pizzaria.dao;
 
 import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
-import com.br.mackenzie.pizzaria.model.javabeans.UsuarioInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

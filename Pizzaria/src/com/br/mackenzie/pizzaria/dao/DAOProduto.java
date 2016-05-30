@@ -93,25 +93,25 @@ public class DAOProduto implements GenericDAO<Produto> {
     @Override
     public Produto readById(long id) {
         Produto produto = null;
-        String sql = "SELECT * FROM cliente WHERE id = ?";
+        String sql = "SELECT * FROM produto WHERE codigo = ?";
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
             pst.setLong(1, id);
             ResultSet rst = pst.executeQuery();
 
-            long codigo_sabor = rst.getInt("codigo_sabor");
-            Sabor sabor = new DAOSabor().readById(codigo_sabor);
-            String nome = rst.getString("nome");
-            double preco = rst.getDouble("preco");
+            while (rst != null && rst.next()) {
+                long codigo_sabor = rst.getInt("codigo_sabor");
+                Sabor sabor = new DAOSabor().readById(codigo_sabor);
+                String nome = rst.getString("nome");
+                double preco = rst.getDouble("preco");
+                String descricao = rst.getString("descricao");
 
-            while (rst.next()) {
                 produto = new Produto();
                 produto.setCodigo(id);
                 produto.setSabor(sabor);
                 produto.setNome(nome);
                 produto.setPreco(preco);
+                produto.setDescricao(descricao);
             }
-
-            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -23,10 +23,10 @@
                     <b>Sabor:</b> ${pizza.sabor.nome}<br>
                     <b>Nome do produto: </b>${pizza.nome}<br>
                     <b>Preço do produto: </b>R$ ${pizza.preco}<br>
-                    <b>Selecionar: </b><input style="transform: scale(1.5);" type="checkbox" name="pizza" value="${pizza.codigo}">
+                    <b>Selecionar: </b><input style="transform: scale(1.5);" type="checkbox" name="selecionados" value="${pizza.codigo}">
                     <br><br><hr>
                 </c:forEach>
-                    <input type="hidden" value="${usuario.codigo_usuario}">
+                    <input type="hidden" name="usuario" value="${usuario.codigo_usuario}">
                     <input style="padding: 15px;" type="submit" value="Finalizar Pedido">
                     <br><br><hr>
             </form>
