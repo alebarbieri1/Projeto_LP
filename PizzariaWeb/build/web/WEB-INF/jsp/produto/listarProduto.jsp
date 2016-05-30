@@ -41,9 +41,9 @@
                 </tbody>
             </table>
             <hr>
-            <footer>
-                Desenvolvido por Alexandre Barbieri e Felipe Teixeira
-            </footer>
         </article>
+        <footer>
+            Desenvolvido por Alexandre Barbieri e Felipe Teixeira
+        </footer>
     </body>
 </html>

@@ -107,6 +107,34 @@ public class DAOSabor implements GenericDAO<Sabor> {
         return sabor;
     }
 
+    public List<Sabor> readByTipo(Tipo tipo) {
+        List<Sabor> sabores = new ArrayList();
+        String sql = "SELECT * FROM sabor WHERE cod_tipo = ?";
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
+            pst.setLong(1, tipo.getCodigo());
+            ResultSet rs = pst.executeQuery();
+            while (rs != null && rs.next()) {
+                
+                Sabor sabor = new Sabor();
+                long cod = rs.getLong("codigo");
+                long cod_tipo = rs.getLong("cod_tipo");
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
+                sabor.setCodigo(cod);
+                sabor.setTipo(tipo);
+                sabor.setNome(nome);
+                sabor.setDescricao(descricao);
+
+                sabores.add(sabor);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOSabor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return sabores;
+    }
+
     @Override
     public boolean delete(Sabor e) {
         boolean apagou = false;

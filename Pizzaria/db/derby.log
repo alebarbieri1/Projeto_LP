@@ -1,7 +1,7 @@
-Thu May 26 20:05:22 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Sat May 28 22:06:44 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Thu May 26 20:05:23 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-ef50-abf3-ffffaacc3be3
+Sat May 28 22:08:12 BRT 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0154-fa0c-809b-ffffaacc3be3
 no diretório de banco de dados C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db\pizzaria 
 
 java.vendor=Oracle Corporation
@@ -12,5 +12,3 @@ os.arch=amd64
 os.version=6.1
 derby.system.home=C:\Users\Inmetrics.LP0276\Documents\GitHub\Projeto_LP\Pizzaria\db
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Thu May 26 20:30:17 BRT 2016: Shutting down Derby engine

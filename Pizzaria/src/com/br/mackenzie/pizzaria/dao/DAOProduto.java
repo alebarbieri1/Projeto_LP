@@ -42,7 +42,7 @@ public class DAOProduto implements GenericDAO<Produto> {
             pst.setString(2, p.getNome());
             pst.setDouble(3, p.getPreco());
             pst.setString(4, p.getDescricao());
-            
+
             int linhasAfetadas = pst.executeUpdate();
             if (linhasAfetadas > 0) {
                 ResultSet rs = pst.getGeneratedKeys();
@@ -112,6 +112,34 @@ public class DAOProduto implements GenericDAO<Produto> {
             }
 
             pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produto;
+    }
+
+    public Produto readBySabor(Sabor sabor) {
+        Produto produto = null;
+        String sql = "SELECT * FROM produto WHERE codigo_sabor = ?";
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
+            pst.setLong(1, sabor.getCodigo());
+            ResultSet rs = pst.executeQuery();
+            while (rs != null && rs.next()) {
+                int codigo = rs.getInt("codigo");
+                int codigo_sabor = rs.getInt("codigo_sabor");
+                String nome = rs.getString("nome");
+                double preco = rs.getDouble("preco");
+                String descricao = rs.getString("descricao");
+
+                produto = new Produto();
+
+                produto.setCodigo(codigo);
+                produto.setSabor(sabor);
+                produto.setNome(nome);
+                produto.setPreco(preco);
+                produto.setDescricao(descricao);
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProduto.class.getName()).log(Level.SEVERE, null, ex);
         }

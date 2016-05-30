@@ -16,7 +16,7 @@
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
         <c:if test="${usuario == null}">
-            <div style="border-radius: 8px; color: #D63301; width: 90%; background-color: #FFCCBA; margin-top: 10px; padding: 5px; font-weight: bold;">É necessário estar logado e ser um administrador para ter acesso à esta página!</div>
+            <div style="border-radius: 8px; color: #D63301; width: 90%; background-color: #FFCCBA; margin-top: 10px; padding: 5px; font-weight: bold;">É necessário estar logado e ser um administrador para ter acesso a esta página!</div>
         </c:if>
         <c:if test="${usuario != null}">
             <article>

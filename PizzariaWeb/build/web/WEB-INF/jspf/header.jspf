@@ -4,7 +4,7 @@
 <header>
     <ul>
         <li><a href="/pizzaria">Pizzaria</a></li>
-        <li><a href="#">Pizzas</a></li>
+        <li><a href="${pageContext.request.contextPath}/pizza!listar.action">Pizzas</a></li>
         <li><a href="#">Outros Produtos</a></li>
         <li><a href="#">Promoções</a></li>
         <li><a href="#">Entregas</a></li>

@@ -94,6 +94,26 @@ public class DAOTipo implements GenericDAO<Tipo> {
         return tipo;
     }
 
+    public Tipo readByName(String nome) {
+        Tipo tipo = null;
+        String sql = "SELECT * FROM tipo WHERE nome = ?";
+        try (PreparedStatement pst = connection.prepareStatement(sql)) {
+            pst.setString(1, nome);
+            ResultSet rs = pst.executeQuery();
+            while (rs != null && rs.next()) {
+                long codigo = rs.getLong("codigo");
+                String nome_tipo = rs.getString("nome");
+                tipo = new Tipo();
+                tipo.setCodigo(codigo);
+                tipo.setNome(nome_tipo);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOTipo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tipo;
+    }
+
     @Override
     public boolean delete(Tipo e) {
         boolean apagou = false;

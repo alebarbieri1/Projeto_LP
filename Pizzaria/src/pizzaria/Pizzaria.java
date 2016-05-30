@@ -81,14 +81,19 @@ public class Pizzaria {
 //        DAOPedido dp2 = new DAOPedido();
 //        pedido.setUsuario(u);
 //        pedido.setCodigo(dp2.create(pedido));
+//
+//          DAOSabor dao_sabor = new DAOSabor();
+//          List<Sabor> sabores = dao_sabor.read();
+//          
+//          for (Sabor sabor : sabores){
+//              sabor.getNome();
+//              sabor.getTipo();
+//          }
 
-          DAOSabor dao_sabor = new DAOSabor();
-          List<Sabor> sabores = dao_sabor.read();
-          
-          for (Sabor sabor : sabores){
-              sabor.getNome();
-              sabor.getTipo();
-          }
+        DAOTipo dao_tipo = new DAOTipo();
+        Tipo tipo = dao_tipo.readByName("Pizza");
+        System.out.println(tipo.getNome());
+
     }
 
 }
