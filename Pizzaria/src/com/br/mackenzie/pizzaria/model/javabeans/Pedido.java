@@ -54,6 +54,11 @@ public class Pedido implements Serializable {
     public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;
     }
+     public void setPrecoTotal() {
+        for(ItemPedido ip:itensPedido){
+        this.precoTotal += ip.getTotal();
+        }
+    }
 
     public Date getData() {
         return data;
