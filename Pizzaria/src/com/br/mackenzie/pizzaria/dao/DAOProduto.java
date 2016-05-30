@@ -93,19 +93,19 @@ public class DAOProduto implements GenericDAO<Produto> {
     @Override
     public Produto readById(long id) {
         Produto produto = null;
-        String sql = "SELECT * FROM cliente WHERE id = ?";
+        String sql = "SELECT * FROM produto WHERE codigo = ?";
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
             pst.setLong(1, id);
             ResultSet rst = pst.executeQuery();
-
+            while (rst.next()) {
+            
             long codigo_sabor = rst.getInt("codigo_sabor");
-            Sabor sabor = new DAOSabor().readById(codigo_sabor);
             String nome = rst.getString("nome");
             double preco = rst.getDouble("preco");
 
-            while (rst.next()) {
                 produto = new Produto();
                 produto.setCodigo(id);
+            Sabor sabor = new DAOSabor().readById(codigo_sabor);
                 produto.setSabor(sabor);
                 produto.setNome(nome);
                 produto.setPreco(preco);

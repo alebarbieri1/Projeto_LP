@@ -47,7 +47,7 @@ public class PedidoAction extends ActionSupport {
         p.setPrecoTotal();
         DAOPedido daope = new DAOPedido();
         daope.create(p);
-        this.getRequest().setAttribute("pedidos", new DAOPedido().read());
+        this.getRequest().setAttribute("pedido",p);
         return "WEB-INF/jsp/pedido/listarPedidos.jsp";
     }
  

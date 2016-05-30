@@ -51,7 +51,7 @@ public class UsuarioAction extends ActionSupport {
         Usuario u = new Usuario();
         u.setNomeUsuario(this.getRequest().getParameter("nome_usuario"));
         u.setSenha(this.getRequest().getParameter("senha"));
-        u.setTipoUsuario(1);
+        u.setTipoUsuario(Integer.parseInt(this.getRequest().getParameter("acesso")));
         u.setUsuarioInfo(usuarioInfo);
 
         DAOUsuario daoUsuario = new DAOUsuario();

@@ -7,10 +7,12 @@ package com.br.mackenzie.pizzaria.dao;
 
 import com.br.mackenzie.pizzaria.model.javabeans.ItemPedido;
 import com.br.mackenzie.pizzaria.model.javabeans.Pedido;
+import com.br.mackenzie.pizzaria.model.javabeans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +37,7 @@ public class DAOPedido implements GenericDAO<Pedido> {
         String sql = "INSERT INTO pedido (cliente, preco_total, data) VALUES (?,?,?)";
 
         try {
-            PreparedStatement pst = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement pst = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
             pst.setLong(1, e.getUsuario().getCodigo_usuario());
             pst.setDouble(2, e.getPrecoTotal());
@@ -80,6 +82,31 @@ public class DAOPedido implements GenericDAO<Pedido> {
     @Override
     public Pedido readById(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Pedido> readByUsuarioId(long id) {
+        List<Pedido> listaP = new ArrayList();
+        Usuario u = new DAOUsuario().readById(id);
+        try {
+            PreparedStatement pst = connection.prepareStatement("SELECT * FROM pedido WHERE cliente = ?");
+            pst.setLong(1, id);
+            
+            ResultSet rs= pst.executeQuery();
+                  
+            while(rs.next()){
+            Pedido p = new Pedido();
+            p.setCodigo(rs.getLong("codigo"));
+            p.setData(rs.getDate("data"));
+            p.setPrecoTotal(rs.getDouble("preco"));
+            p.setUsuario(u);
+            List<ItemPedido> listaItem = new ArrayList();
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOPedido.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listaP;
     }
 
     @Override

@@ -8,7 +8,11 @@
         <li><a href="#">Outros Produtos</a></li>
         <li><a href="#">Promoções</a></li>
         <li><a href="#">Entregas</a></li>
-        <li><a href="gerenciar.jsp">Gerenciar</a></li>
+            <c:choose>
+                <c:when test="${usuario.tipoUsuario==1}">
+                <li><a href="gerenciar.jsp">Gerenciar</a></li>
+                </c:when>
+            </c:choose>
         <li><a href="sobre.jsp">Sobre</a></li>
     </ul>
     <section id="login">
