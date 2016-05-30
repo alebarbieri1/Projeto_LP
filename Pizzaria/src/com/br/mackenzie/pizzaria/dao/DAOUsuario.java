@@ -102,7 +102,7 @@ public class DAOUsuario implements GenericDAO<Usuario> {
           
                 String nome_usuario = rs.getString("nome_usuario");
                 String senha = rs.getString("senha");
-                Integer tipo_usuario = rs.getInt("tipoUsuario");
+                Integer tipo_usuario = rs.getInt("tipo_usuario");
 
                 usuario = new Usuario();
                 usuario.setCodigo_usuario(codigo_usuario);
