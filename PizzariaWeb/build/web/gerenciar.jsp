@@ -15,10 +15,9 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <c:if test="${usuario == null}">
-            <div style="border-radius: 8px; color: #D63301; width: 90%; background-color: #FFCCBA; margin-top: 10px; padding: 5px; font-weight: bold;">É necessário estar logado e ser um administrador para ter acesso a esta página!</div>
+        <c:if test="${usuario.tipoUsuario != 1}">
+            <c:redirect url="index.jsp"></c:redirect>
         </c:if>
-        <c:if test="${usuario != null}">
             <article>
             <h1>Painel de Controle</h1>
             <hr>
@@ -57,7 +56,6 @@
                 </tbody>
             </table>
         </article>
-        </c:if>
         <footer>
             Desenvolvido por Alexandre Barbieri e Felipe Teixeira
         </footer>

@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pizzaria - Alterar Produto</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Ficou faltando :/</h1>
+        <h3>Em breve...</h3>
+        <img src="${pageContext.request.contextPath}/imgs/sad_face.jpg" alt=""/>
     </body>
 </html>

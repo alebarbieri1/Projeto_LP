@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pizzaria</title>
+        <title>Pizzaria - Index</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
