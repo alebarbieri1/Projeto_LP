@@ -17,6 +17,14 @@
         <%@include file="../../jspf/header.jspf" %>
         <article>
             <h1 style="color: green;">Pedido Finalizado</h1><hr>
+            <b>Preço total: R$ ${pedido.precoTotal}</b><br><hr>
+            <c:forEach var="item" items="${pedido.itensPedido}">
+                <b>Nome do Produto: </b> ${item.produto.nome}<br>
+                <b>Quantidade: </b> ${item.quantidade}<br>
+                <b>Preço do Produto: </b> ${item.quantidade} * R$ ${item.produto.preco} = R$ ${item.produto.preco}
+                <br>
+                <hr>
+            </c:forEach>
         </article>
         <footer>
             Desenvolvido por Alexandre Barbieri e Felipe Teixeira
