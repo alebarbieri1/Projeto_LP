@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pizzaria</title>
+        <title>Pizzaria - Index</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -27,7 +27,7 @@
                             <label>Endereço</label><input type="text" name="endereco" placeholder="Endereço" required="required"><br>
                             <label>Telefone</label><input type="text" name="telefone" placeholder="Telefone" required="required"><br>
                             <label>CEP</label><input type="text" name="cep" placeholder="CEP" required="required"><br>
-                            <label>Tipo de Usuario: </label> <input type="radio" name="acesso" value="0"> Comum <input type="radio" name="acesso" value="1"> Administrador<br>
+                            &nbsp;&nbsp;&nbsp;<label>Tipo de Usuário</label> <input type="radio" style="transform: scale(1.5);"  name="acesso" value="0" checked="checked"> Comum &nbsp; <input type="radio" style="transform: scale(1.5);" name="acesso" value="1"> Administrador<br><br>
                             <input type="submit" value="Cadastrar-se">
                         </fieldset>
                     </form>

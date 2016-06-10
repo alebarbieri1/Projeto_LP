@@ -12,6 +12,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pizzaria - Tipos</title>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+        <c:if test="${erroTipo}">
+            <script type="text/javascript">
+                alert("Você não pode remover esse tipo pois possui 1 ou mais sabores vinculados a ele!");
+            </script>
+        </c:if>
     </head>
     <body>
         <%@include file="../../jspf/header.jspf" %>
@@ -38,6 +43,8 @@
             <footer>
                 Desenvolvido por Alexandre Barbieri e Felipe Teixeira
             </footer>
+
+
         </article>
     </body>
 </html>

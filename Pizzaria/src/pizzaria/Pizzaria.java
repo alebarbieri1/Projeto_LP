@@ -5,12 +5,12 @@
  */
 package pizzaria;
 
-import com.br.mackenzie.pizzaria.dao.DAOPedido;
-import com.br.mackenzie.pizzaria.dao.DAOProduto;
-import com.br.mackenzie.pizzaria.dao.DAOSabor;
-import com.br.mackenzie.pizzaria.dao.DAOTipo;
-import com.br.mackenzie.pizzaria.dao.DAOUsuario;
-import com.br.mackenzie.pizzaria.dao.DAOUsuarioInfo;
+import com.br.mackenzie.pizzaria.model.dao.DAOPedido;
+import com.br.mackenzie.pizzaria.model.dao.DAOProduto;
+import com.br.mackenzie.pizzaria.model.dao.DAOSabor;
+import com.br.mackenzie.pizzaria.model.dao.DAOTipo;
+import com.br.mackenzie.pizzaria.model.dao.DAOUsuario;
+import com.br.mackenzie.pizzaria.model.dao.DAOUsuarioInfo;
 import com.br.mackenzie.pizzaria.model.javabeans.ItemPedido;
 import com.br.mackenzie.pizzaria.model.javabeans.Pedido;
 import com.br.mackenzie.pizzaria.model.javabeans.Produto;
