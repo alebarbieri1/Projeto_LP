@@ -45,8 +45,9 @@ public class PedidoAction extends ActionSupport {
             long codigo = Long.parseLong(s);
             ItemPedido ip = new ItemPedido();
             ip.setProduto(daop.readById(codigo));
-            ip.setQuantidade(1);
-            ip.setTotal(ip.getProduto().getPreco());
+            String qtd = this.getRequest().getParameter("qtd_" + s);
+            ip.setQuantidade(Integer.parseInt(qtd));
+            ip.setTotal(ip.getProduto().getPreco() * ip.getQuantidade());
             ls.add(ip);
         }
         p.setItensPedido(ls);
@@ -55,6 +56,7 @@ public class PedidoAction extends ActionSupport {
         long codigoPedido = daope.create(p);
         p.setCodigo(codigoPedido);
         this.getRequest().setAttribute("pedido", p);
+        
         
         return "WEB-INF/jsp/pedido/listarPedido.jsp";
     }

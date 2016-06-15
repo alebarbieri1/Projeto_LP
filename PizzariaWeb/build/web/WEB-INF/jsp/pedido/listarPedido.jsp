@@ -22,7 +22,7 @@
             <c:forEach var="item" items="${pedido.itensPedido}">
                 <b>Nome do Produto: </b> ${item.produto.nome}<br>
                 <b>Quantidade: </b> ${item.quantidade}<br>
-                <b>Preço Total do Produto: </b> ${item.quantidade} * R$ ${item.produto.preco} = R$ ${item.produto.preco}
+                <b>Preço Total do Produto: </b> ${item.quantidade} * R$ ${item.produto.preco} = R$ ${item.total}
                 <br>
                 <hr>
             </c:forEach>
